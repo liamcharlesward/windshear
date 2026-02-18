@@ -7,6 +7,7 @@ export default {
 export const Primary = {
   args: {
     text: "Primary Button",
+    variant: "filled",
     preset: "primary",
   },
 };
@@ -14,6 +15,7 @@ export const Primary = {
 export const Secondary = {
   args: {
     text: "Secondary Button",
+    variant: "filled",
     preset: "secondary",
   },
 };
@@ -21,20 +23,23 @@ export const Secondary = {
 export const Tertiary = {
   args: {
     text: "Tertiary Button",
+    variant: "outlined",
     preset: "tertiary",
   },
 };
 
 export const Confirmation = {
   args: {
-    text: "Confirmation",
+    text: "Confirmation Button",
+    variant: "translucent",
     preset: "confirm",
   },
 };
 
 export const Destructive = {
   args: {
-    text: "Destructive",
+    text: "Destructive Button",
+    variant: "translucent",
     preset: "destructive",
   },
 };
