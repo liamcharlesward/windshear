@@ -1,4 +1,7 @@
 import { Button } from "./Button";
+import { FaTrash } from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 
 export default {
   component: Button,
@@ -9,6 +12,7 @@ export const Primary = {
     text: "Primary Button",
     variant: "filled",
     preset: "primary",
+    shadow: true,
   },
 };
 
@@ -22,24 +26,28 @@ export const Secondary = {
 
 export const Tertiary = {
   args: {
-    text: "Tertiary Button",
     variant: "outlined",
+    icon: FaInfoCircle,
     preset: "tertiary",
   },
 };
 
 export const Confirmation = {
   args: {
-    text: "Confirmation Button",
+    text: "Send",
     variant: "translucent",
+    icon: FaPaperPlane,
     preset: "confirm",
+    iconPosition: "right",
   },
 };
 
 export const Destructive = {
   args: {
-    text: "Destructive Button",
+    text: "Delete",
     variant: "translucent",
+    icon: FaTrash,
     preset: "destructive",
+    iconPosition: "left",
   },
 };
