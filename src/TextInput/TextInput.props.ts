@@ -6,4 +6,4 @@ export interface TextInputProps {
   accent?: "primary" | "secondary" | "tertiary";
   placeholder?: string,
   leadingIcon?: IconType;
-};x
+};

@@ -2,6 +2,7 @@ import type { TextInputProps } from "./TextInput.props";
 import { useState } from "react";
 import clsx from "clsx";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Colors } from "../Colors";
 
 export const TextInput = (props: TextInputProps) => {
   const [type, setType] = useState(props.type);
@@ -12,12 +13,6 @@ export const TextInput = (props: TextInputProps) => {
     underlined: "border-b-2 border-gray-500 rounded-tl-sm rounded-tr-sm",
   };
 
-  const accentColours = {
-    primary: "hover:border-blue-500 focus-within:border-blue-500",
-    secondary: "hover:border-violet-500 focus-within:border-violet-500",
-    tertiary: "hover:border-sky-500 focus-within:border-sky-500",
-  };
-
   const handleToggle = () => {
     if (type == "password") {
       setType("text");
@@ -26,13 +21,15 @@ export const TextInput = (props: TextInputProps) => {
     }
   };
 
+  const accent = props.accent || "primary";
+
   return (
     <div className="w-auto">
       <div
         className={clsx(
           "transition-colors cursor-text p-2 bg-gray-500/20 placeholder-gray-500 items-center gap-x-2 inline-flex",
           variantStyles[props.variant],
-          props.accent ? accentColours[props.accent] : accentColours["primary"],
+          `hover:${Colors[accent].border} focus-within:${Colors[accent].border}`,
         )}
       >
         {LeadingIcon && (
