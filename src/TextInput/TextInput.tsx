@@ -29,7 +29,7 @@ export const TextInput = (props: TextInputProps) => {
         className={clsx(
           "transition-colors cursor-text p-2 bg-gray-500/20 placeholder-gray-500 items-center gap-x-2 inline-flex",
           variantStyles[props.variant],
-          `hover:${Colors[accent].border} focus-within:${Colors[accent].border}`,
+          `${Colors[accent].hoverBorder} ${Colors[accent].focusWithinBorder}`,
         )}
       >
         {LeadingIcon && (
@@ -43,7 +43,7 @@ export const TextInput = (props: TextInputProps) => {
             onClick={handleToggle}
             className="text-gray-500 text-xl hover:text-gray-600 cursor-pointer transition-colors"
           >
-            {type == "password" ? <FaEyeSlash /> : <FaEye />}
+            {type == "password" ? <FaEye /> : <FaEyeSlash />}
           </button>
         )}
       </div>

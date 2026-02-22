@@ -2,6 +2,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import type { RadioGroupProps } from "./RadioGroup.props";
 import { Colors } from "../Colors";
+import { IoMdCheckmark } from "react-icons/io";
 
 export const RadioGroup = (props: RadioGroupProps) => {
   // TODO: Extract state
@@ -15,16 +16,16 @@ export const RadioGroup = (props: RadioGroupProps) => {
   };
 
   const radioOptions = props.options.map((option, index) => {
-    const accent = props.accent || "primary";
+    const accentColor = Colors[props.accent || "primary"];
 
     return (
       <div
         className={clsx(
-          "flex justify-between cursor-pointer p-2 rounded-md border-2 transition-colors col-start-auto col-end-auto",
-          `hover:${Colors[accent].border} hover:${Colors[accent].bgTranslucent}`,
+          "flex justify-between cursor-pointer p-2 rounded-md border-2 transition-colors",
+          `hover:${accentColor.border} hover:${accentColor.bgTranslucent} hover:${accentColor.text}`,
           selected === index
-            ? `${Colors[accent].border} ${Colors[accent].bgTranslucent}`
-            : "border-gray-500 bg-gray-500/20",
+            ? `${accentColor.border} ${accentColor.bgTranslucent} ${accentColor.text}`
+            : "border-gray-500 bg-gray-500/20 text-gray-500",
         )}
         key={index}
         onClick={() => setSelected(index)}
@@ -32,17 +33,24 @@ export const RadioGroup = (props: RadioGroupProps) => {
         <p>{option}</p>
         <div
           className={clsx(
-            "rounded-full bg-white aspect-square w-6 flex items-center justify-center border",
-            selected === index ? Colors[accent].border : "border-gray-500",
+            `rounded-full bg-white aspect-square w-6 flex items-center justify-center border`,
+            selected === index ? accentColor.border : "border-gray-500",
           )}
         >
           {selected === index && (
-            <div className={clsx("rounded-full w-4/5 aspect-square", Colors[accent].bgHover)}></div>
+            <div
+              className={clsx(
+                "rounded-full w-4/5 aspect-square flex items-center justify-center",
+                accentColor.bgDarker,
+              )}
+            >
+              {props.tick && <IoMdCheckmark className="text-white" />}
+            </div>
           )}
         </div>
       </div>
     );
   });
 
-  return <div className={clsx("grid gap-y-2 gap-x-2", rowOptions[props.maxPerRow])}>{radioOptions}</div>;
+  return <div className={clsx(" grid gap-y-2 gap-x-2", rowOptions[props.maxPerRow])}>{radioOptions}</div>;
 };

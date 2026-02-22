@@ -28,11 +28,11 @@ export const Button = (props: ButtonProps) => {
       className={clsx(
         " border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed",
         props.variant === "filled" &&
-          `border-transparent text-white dark:text-black ${Colors[preset].bg} enabled:hover:${Colors[preset].bgHover}`,
+          `border-transparent text-white dark:text-black ${Colors[preset].bg} ${Colors[preset].hoverBgDarker}`,
         props.variant === "outlined" &&
-          `enabled:hover:text-white enabled:dark:hover:text-black ${Colors[preset].border} ${Colors[preset].text} enabled:hover:${Colors[preset].bgHover}`,
+          `enabled:hover:text-white enabled:dark:hover:text-black ${Colors[preset].border} ${Colors[preset].text} ${Colors[preset].hoverBgDarker}`,
         props.variant === "translucent" &&
-          `enabled:hover:text-white enabled:dark:hover:text-black ${Colors[preset].border} ${Colors[preset].text} ${Colors[preset].bgTranslucent} enabled:hover:${Colors[preset].bgHover}`,
+          `enabled:hover:text-white enabled:dark:hover:text-black ${Colors[preset].border} ${Colors[preset].text} ${Colors[preset].bgTranslucent} ${Colors[preset].hoverBgDarker}`,
         props.size ? size[props.size] : "text-md p-2",
         props.rounding ? rounding[props.rounding] : "rounded-md",
         props.shadow && "drop-shadow-lg",
