@@ -21,7 +21,7 @@ export const TextInput = (props: TextInputProps) => {
     }
   };
 
-  const accent = props.accent || "primary";
+  const accent = Colors[props.accent || "primary"];
 
   return (
     <div className="w-auto">
@@ -29,7 +29,7 @@ export const TextInput = (props: TextInputProps) => {
         className={clsx(
           "transition-colors cursor-text p-2 bg-gray-500/20 placeholder-gray-500 items-center gap-x-2 inline-flex",
           variantStyles[props.variant],
-          `${Colors[accent].hoverBorder} ${Colors[accent].focusWithinBorder}`,
+          [accent.border.hover, accent.border.focusWithin],
         )}
       >
         {LeadingIcon && (

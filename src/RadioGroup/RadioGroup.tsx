@@ -16,15 +16,17 @@ export const RadioGroup = (props: RadioGroupProps) => {
   };
 
   const radioOptions = props.options.map((option, index) => {
-    const accentColor = Colors[props.accent || "primary"];
+    const accent = Colors[props.accent || "primary"];
 
     return (
       <div
         className={clsx(
-          "flex justify-between cursor-pointer p-2 rounded-md border-2 transition-colors",
-          `hover:${accentColor.border} hover:${accentColor.bgTranslucent} hover:${accentColor.text}`,
+          "flex justify-between cursor-pointer p-2 rounded-md border-2 transition-colors group",
+          accent.border.hover,
+          accent.bgTranslucent.hover,
+          accent.text.hover,
           selected === index
-            ? `${accentColor.border} ${accentColor.bgTranslucent} ${accentColor.text}`
+            ? [accent.border.base, accent.bgTranslucent.base, accent.text.base]
             : "border-gray-500 bg-gray-500/20 text-gray-500",
         )}
         key={index}
@@ -33,15 +35,15 @@ export const RadioGroup = (props: RadioGroupProps) => {
         <p>{option}</p>
         <div
           className={clsx(
-            `rounded-full bg-white aspect-square w-6 flex items-center justify-center border`,
-            selected === index ? accentColor.border : "border-gray-500",
+            `rounded-full bg-white aspect-square w-6 flex items-center justify-center border ${accent.border.groupHover}`,
+            selected === index ? accent.border.base : "border-gray-500",
           )}
         >
           {selected === index && (
             <div
               className={clsx(
                 "rounded-full w-4/5 aspect-square flex items-center justify-center",
-                accentColor.bgDarker,
+                accent.bgDarker.base,
               )}
             >
               {props.tick && <IoMdCheckmark className="text-white" />}

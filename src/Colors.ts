@@ -1,77 +1,162 @@
 export const Colors = {
   primary: {
-    bg: "bg-blue-400",
-    bgDarker: "bg-blue-500",
-    bgTranslucent: "bg-blue-500/20",
-    border: "border-blue-500",
-    text: "text-blue-500",
-    // HOVER
-    hoverBg: "hover:bg-blue-400",
-    hoverBgDarker: "hover:bg-blue-500",
-    hoverBgTranslucent: "hover:bg-blue-500/20",
-    hoverBorder: "hover:border-blue-500",
-    hoverText: "hover:text-blue-500",
-    // FOCUS & FOCUS WITHIN
-    focusWithinBorder: "focus-within:border-blue-500"
+    bg: {
+      base: 'bg-blue-400',
+      hover: 'hover:bg-blue-400',
+      groupHover: 'group-hover:bg-blue-400',
+      focusWithin: 'focus-within:bg-blue-400',
+    },
+    bgDarker: {
+      base: 'bg-blue-500',
+      hover: 'hover:bg-blue-500',
+      groupHover: 'group-hover:bg-blue-500',
+      focusWithin: 'focus-within:bg-blue-500',
+    },
+    bgTranslucent: {
+      base: 'bg-blue-500/20',
+      hover: 'hover:bg-blue-500/20',
+      groupHover: 'group-hover:bg-blue-500/20',
+      focusWithin: 'focus-within:bg-blue-500/20',
+    },
+    border: {
+      base: 'border-blue-500',
+      hover: 'hover:border-blue-500',
+      groupHover: 'group-hover:border-blue-500',
+      focusWithin: 'focus-within:border-blue-500',
+    },
+    text: {
+      base: 'text-blue-500',
+      hover: 'hover:text-blue-500',
+      groupHover: 'group-hover:text-blue-500',
+      focusWithin: 'focus-within:text-blue-500',
+    },
   },
   secondary: {
-    bg:"bg-violet-400",
-    bgDarker: "bg-violet-500",
-    bgTranslucent: "bg-violet-500/20",
-    border: "border-violet-500",
-    text: "text-violet-500",
-    // HOVER
-    hoverBg: "hover:bg-violet-400",
-    hoverBgDarker: "hover:bg-violet-500",
-    hoverBgTranslucent: "hover:bg-violet-500/20",
-    hoverBorder: "hover:border-violet-500",
-    hoverText: "hover:text-violet-500",
-    // FOCUS & FOCUS WITHIN
-    focusWithinBorder: "focus-within:border-violet-500"
+    bg: {
+      base: 'bg-violet-400',
+      hover: 'hover:bg-violet-400',
+      groupHover: 'group-hover:bg-violet-400',
+      focusWithin: 'focus-within:bg-violet-400',
+    },
+    bgDarker: {
+      base: 'bg-violet-500',
+      hover: 'hover:bg-violet-500',
+      groupHover: 'group-hover:bg-violet-500',
+      focusWithin: 'focus-within:bg-violet-500',
+    },
+    bgTranslucent: {
+      base: 'bg-violet-500/20',
+      hover: 'hover:bg-violet-500/20',
+      groupHover: 'group-hover:bg-violet-500/20',
+      focusWithin: 'focus-within:bg-violet-500/20',
+    },
+    border: {
+      base: 'border-violet-500',
+      hover: 'hover:border-violet-500',
+      groupHover: 'group-hover:border-violet-500',
+      focusWithin: 'focus-within:border-violet-500',
+    },
+    text: {
+      base: 'text-violet-500',
+      hover: 'hover:text-violet-500',
+      groupHover: 'group-hover:text-violet-500',
+      focusWithin: 'focus-within:text-violet-500',
+    },
   },
   tertiary: {
-    bg: "bg-sky-400",
-    bgDarker: "bg-sky-500",
-    bgTranslucent: "bg-sky-500/20",
-    border: "border-sky-500",
-    text: "text-sky-500",
-    // HOVER
-    hoverBg: "hover:bg-sky-400",
-    hoverBgDarker: "hover:bg-sky-500",
-    hoverBgTranslucent: "hover:bg-sky-500/20",
-    hoverBorder: "hover:border-sky-500",
-    hoverText: "hover:text-sky-500",
-    // FOCUS & FOCUS WITHIN
-    focusWithinBorder: "focus-within:border-sky-500"
+    bg: {
+      base: 'bg-sky-400',
+      hover: 'hover:bg-sky-400',
+      groupHover: 'group-hover:bg-sky-400',
+      focusWithin: 'focus-within:bg-sky-400',
+    },
+    bgDarker: {
+      base: 'bg-sky-500',
+      hover: 'hover:bg-sky-500',
+      groupHover: 'group-hover:bg-sky-500',
+      focusWithin: 'focus-within:bg-sky-500',
+    },
+    bgTranslucent: {
+      base: 'bg-sky-500/20',
+      hover: 'hover:bg-sky-500/20',
+      groupHover: 'group-hover:bg-sky-500/20',
+      focusWithin: 'focus-within:bg-sky-500/20',
+    },
+    border: {
+      base: 'border-sky-500',
+      hover: 'hover:border-sky-500',
+      groupHover: 'group-hover:border-sky-500',
+      focusWithin: 'focus-within:border-sky-500',
+    },
+    text: {
+      base: 'text-sky-500',
+      hover: 'hover:text-sky-500',
+      groupHover: 'group-hover:text-sky-500',
+      focusWithin: 'focus-within:text-sky-500',
+    },
   },
   confirm: {
-    bg: "bg-green-400",
-    bgDarker: "bg-green-500",
-    bgTranslucent: "bg-green-500/20",
-    border: "border-green-500",
-    text: "text-green-500",
-    // HOVER
-    hoverBg: "hover:bg-green-400",
-    hoverBgDarker: "hover:bg-green-500",
-    hoverBgTranslucent: "hover:bg-green-500/20",
-    hoverBorder: "hover:border-green-500",
-    hoverText: "hover:text-green-500",
-    // FOCUS & FOCUS WITHIN
-    focusWithinBorder: "focus-within:border-green-500"
+    bg: {
+      base: 'bg-green-400',
+      hover: 'hover:bg-green-400',
+      groupHover: 'group-hover:bg-green-400',
+      focusWithin: 'focus-within:bg-green-400',
+    },
+    bgDarker: {
+      base: 'bg-green-500',
+      hover: 'hover:bg-green-500',
+      groupHover: 'group-hover:bg-green-500',
+      focusWithin: 'focus-within:bg-green-500',
+    },
+    bgTranslucent: {
+      base: 'bg-green-500/20',
+      hover: 'hover:bg-green-500/20',
+      groupHover: 'group-hover:bg-green-500/20',
+      focusWithin: 'focus-within:bg-green-500/20',
+    },
+    border: {
+      base: 'border-green-500',
+      hover: 'hover:border-green-500',
+      groupHover: 'group-hover:border-green-500',
+      focusWithin: 'focus-within:border-green-500',
+    },
+    text: {
+      base: 'text-green-500',
+      hover: 'hover:text-green-500',
+      groupHover: 'group-hover:text-green-500',
+      focusWithin: 'focus-within:text-green-500',
+    },
   },
   destructive: {
-    bg: "bg-red-400",
-    bgDarker: "bg-red-500",
-    bgTranslucent: "bg-red-500/20",
-    border: "border-red-500",
-    text: "text-red-500",
-    // HOVER
-    hoverBg: "hover:bg-red-400",
-    hoverBgDarker: "hover:bg-red-500",
-    hoverBgTranslucent: "hover:bg-red-500/20",
-    hoverBorder: "hover:border-red-500",
-    hoverText: "hover:text-red-500",
-    // FOCUS & FOCUS WITHIN
-    focusWithinBorder: "focus-within:border-red-500"
-  }
-}
+    bg: {
+      base: 'bg-red-400',
+      hover: 'hover:bg-red-400',
+      groupHover: 'group-hover:bg-red-400',
+      focusWithin: 'focus-within:bg-red-400',
+    },
+    bgDarker: {
+      base: 'bg-red-500',
+      hover: 'hover:bg-red-500',
+      groupHover: 'group-hover:bg-red-500',
+      focusWithin: 'focus-within:bg-red-500',
+    },
+    bgTranslucent: {
+      base: 'bg-red-500/20',
+      hover: 'hover:bg-red-500/20',
+      groupHover: 'group-hover:bg-red-500/20',
+      focusWithin: 'focus-within:bg-red-500/20',
+    },
+    border: {
+      base: 'border-red-500',
+      hover: 'hover:border-red-500',
+      groupHover: 'group-hover:border-red-500',
+      focusWithin: 'focus-within:border-red-500',
+    },
+    text: {
+      base: 'text-red-500',
+      hover: 'hover:text-red-500',
+      groupHover: 'group-hover:text-red-500',
+      focusWithin: 'focus-within:text-red-500',
+    },
+  },
+};

@@ -19,7 +19,7 @@ export const Button = (props: ButtonProps) => {
 
   // TODO: Add support for custom background colours
   const Icon = props.icon;
-  const preset = props.preset || "primary";
+  const preset = Colors[props.preset || "primary"];
 
   return (
     <button
@@ -28,13 +28,13 @@ export const Button = (props: ButtonProps) => {
       className={clsx(
         " border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed",
         props.variant === "filled" &&
-          `border-transparent text-white dark:text-black ${Colors[preset].bg} ${Colors[preset].hoverBgDarker}`,
+          `border-transparent text-white dark:text-black ${preset.bg.base} ${preset.bgDarker.hover}`,
         props.variant === "outlined" &&
-          `enabled:hover:text-white enabled:dark:hover:text-black ${Colors[preset].border} ${Colors[preset].text} ${Colors[preset].hoverBgDarker}`,
+          `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgDarker.hover}`,
         props.variant === "translucent" &&
-          `enabled:hover:text-white enabled:dark:hover:text-black ${Colors[preset].border} ${Colors[preset].text} ${Colors[preset].bgTranslucent} ${Colors[preset].hoverBgDarker}`,
+          `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgTranslucent.base} ${preset.bgDarker.hover}`,
         props.size ? size[props.size] : "text-md p-2",
-        props.rounding ? rounding[props.rounding] : "rounded-md",
+        props.rounding ? rounding[props.rounding] : "rounded-lg",
         props.shadow && "drop-shadow-lg",
       )}
     >
