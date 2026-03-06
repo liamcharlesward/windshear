@@ -3,7 +3,7 @@ import type { IconType } from "react-icons";
 // TODO: Conditionalise props
 export interface ButtonProps {
   variant: "filled" | "outlined" | "translucent";
-  onClick: () => void;
+  //onClick: () => void;
 
   text?: string;
   preset?: "primary" | "secondary" | "tertiary" | "confirm" | "destructive";
