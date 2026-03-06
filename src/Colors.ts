@@ -159,4 +159,36 @@ export const Colors = {
       focusWithin: 'focus-within:text-red-500',
     },
   },
+  neutral: {
+    bg: {
+      base: 'bg-neutral-400',
+      hover: 'hover:bg-neutral-400',
+      groupHover: 'group-hover:bg-neutral-400',
+      focusWithin: 'focus-within:bg-neutral-400',
+    },
+    bgDarker: {
+      base: 'bg-neutral-500',
+      hover: 'hover:bg-neutral-500',
+      groupHover: 'group-hover:bg-neutral-500',
+      focusWithin: 'focus-within:bg-neutral-500',
+    },
+    bgTranslucent: {
+      base: 'bg-neutral-500/20',
+      hover: 'hover:bg-neutral-500/20',
+      groupHover: 'group-hover:bg-neutral-500/20',
+      focusWithin: 'focus-within:bg-neutral-500/20',
+    },
+    border: {
+      base: 'border-neutral-500',
+      hover: 'hover:border-neutral-500',
+      groupHover: 'group-hover:border-neutral-500',
+      focusWithin: 'focus-within:border-neutral-500',
+    },
+    text: {
+      base: 'text-neutral-500',
+      hover: 'hover:text-neutral-500',
+      groupHover: 'group-hover:text-neutral-500',
+      focusWithin: 'focus-within:text-neutral-500',
+    },
+  },
 };

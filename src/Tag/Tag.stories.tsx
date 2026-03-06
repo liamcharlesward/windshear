@@ -5,9 +5,21 @@ export default {
   component: Tag,
 };
 
-export const Primary = {
+export const TextAndIcon = {
   args: {
     text: "Typescript",
+    icon: SiTypescript,
+  },
+};
+
+export const TextOnly = {
+  args: {
+    text: "Typescript",
+  },
+};
+
+export const IconOnly = {
+  args: {
     icon: SiTypescript,
   },
 };
