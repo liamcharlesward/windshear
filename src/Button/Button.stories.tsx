@@ -8,11 +8,13 @@ export default {
 };
 
 export const Primary = {
-  args: {
-    text: "Primary Button",
-    variant: "filled",
-    preset: "primary",
-    shadow: true,
+  args:{
+    text:"Primary Button",
+    variant:"filled",
+    preset:"primary",
+    shadow:true,
+    link:"https://www.w3schools.com/REACT/react_css_styling.asp",
+    newTab:false
   },
 };
 
