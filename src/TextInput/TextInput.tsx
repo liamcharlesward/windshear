@@ -9,8 +9,8 @@ export const TextInput = (props: TextInputProps) => {
   const LeadingIcon = props.leadingIcon;
 
   const variantStyles = {
-    outlined: "border-gray-500 rounded-md border-2 ",
-    underlined: "border-b-2 border-gray-500 rounded-tl-sm rounded-tr-sm",
+    outlined: "border-neutral-400 rounded-md border-2 ",
+    underlined: "border-b-2 border-neutral-400 rounded-tl-sm rounded-tr-sm",
   };
 
   const handleToggle = () => {
@@ -27,13 +27,13 @@ export const TextInput = (props: TextInputProps) => {
     <div className="w-auto">
       <div
         className={clsx(
-          "transition-colors cursor-text p-2 bg-gray-500/20 placeholder-gray-500 items-center gap-x-2 inline-flex",
+          "transition-colors cursor-text p-2 bg-neutral-400/20 placeholder-neutral-400 items-center gap-x-2 inline-flex",
           variantStyles[props.variant],
           [accent.border.hover, accent.border.focusWithin],
         )}
       >
         {LeadingIcon && (
-          <div className="text-gray-500">
+          <div className="text-neutral-400">
             <LeadingIcon />
           </div>
         )}
@@ -41,7 +41,7 @@ export const TextInput = (props: TextInputProps) => {
         {props.type == "password" && (
           <button
             onClick={handleToggle}
-            className="text-gray-500 text-xl hover:text-gray-600 cursor-pointer transition-colors"
+            className="text-neutral-400 text-xl hover:text-gray-600 cursor-pointer transition-colors"
           >
             {type == "password" ? <FaEye /> : <FaEyeSlash />}
           </button>

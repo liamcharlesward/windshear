@@ -15,9 +15,10 @@ export const RadioGroup = (props: RadioGroupProps) => {
     4: "grid-cols-4",
   };
 
-  const radioOptions = props.options.map((option, index) => {
-    const accent = Colors[props.accent || "primary"];
+  const accent = Colors[props.accent || "primary"];
 
+  const radioOptions = props.options.map((option, index) => {
+    const LeadingIcon = option.leadingIcon;
     return (
       <div
         className={clsx(
@@ -27,28 +28,31 @@ export const RadioGroup = (props: RadioGroupProps) => {
           accent.text.hover,
           selected === index
             ? [accent.border.base, accent.bgTranslucent.base, accent.text.base]
-            : "border-gray-500 bg-gray-500/20 text-gray-500",
+            : "border-neutral-500 bg-neutral-500/20 text-neutral-500",
         )}
         key={index}
         onClick={() => setSelected(index)}
       >
-        <p>{option}</p>
+        <div className="flex flex-row items-center gap-x-1">
+          {LeadingIcon && <LeadingIcon className="text-xl" />}
+          <p>{option.option}</p>
+        </div>
         <div
           className={clsx(
-            `rounded-full bg-white aspect-square w-6 flex items-center justify-center border ${accent.border.groupHover}`,
-            selected === index ? accent.border.base : "border-gray-500",
+            "rounded-full bg-white aspect-square w-6 flex items-center justify-center border",
+            accent.border.groupHover,
+            selected === index ? accent.border.base : "border-neutral-500",
           )}
         >
-          {selected === index && (
-            <div
-              className={clsx(
-                "rounded-full w-4/5 aspect-square flex items-center justify-center",
-                accent.bgDarker.base,
-              )}
-            >
-              {props.tick && <IoMdCheckmark className="text-white" />}
-            </div>
-          )}
+          <div
+            className={clsx(
+              "rounded-full w-4/5 aspect-square flex items-center justify-center transition-opacity",
+              accent.bgDarker.base,
+              selected === index ? "opacity-100" : "opacity-0",
+            )}
+          >
+            {props.tick && <IoMdCheckmark className="text-white" />}
+          </div>
         </div>
       </div>
     );

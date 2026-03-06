@@ -7,7 +7,7 @@ export const Colors = {
       focusWithin: 'focus-within:bg-blue-400',
     },
     bgDarker: {
-      base: 'bg-blue-500',
+      base: 'bg-blue-500', 
       hover: 'hover:bg-blue-500',
       groupHover: 'group-hover:bg-blue-500',
       focusWithin: 'focus-within:bg-blue-500',

@@ -1,4 +1,5 @@
 import { RadioGroup } from "./RadioGroup";
+import { MdEmail, MdPhone, MdLocalFireDepartment } from "react-icons/md";
 
 export default {
   component: RadioGroup,
@@ -6,8 +7,21 @@ export default {
 
 export const Primary = {
   args: {
-    options: ["One", "Two", "Three", "Four"],
-    maxPerRow: 4,
+    options: [
+      {
+        option: "Email",
+        leadingIcon: MdEmail,
+      },
+      {
+        option: "Phone",
+        leadingIcon: MdPhone,
+      },
+      {
+        option: "Smoke Signal",
+        leadingIcon: MdLocalFireDepartment,
+      },
+    ],
+    maxPerRow: 3,
     accent: "primary",
   },
 };
