@@ -5,5 +5,6 @@ export interface HeaderProps {
   titleColour?: string,
   subTitle?: string,
   subTitleColour?: string,
+  backgroundColour?: string,
   buttons: ButtonProps[], 
 };
