@@ -10,6 +10,7 @@ export const Alex = {
     titleColour:"white",
     subTitle:"Software Engineer",
     subTitleColour:"grey",
+    backgroundColour:"#071025",
     buttons:[
       {
         variant:"filled",
@@ -33,6 +34,7 @@ export const Liam = {
     titleColour: "white",
     subTitle: "Software Engineer",
     subTitleColour: "grey",
+    backgroundColour:"red",
     buttons: [
       {
         variant: "outlined",
