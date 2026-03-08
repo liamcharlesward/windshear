@@ -23,3 +23,18 @@ export const IconOnly = {
     icon: SiTypescript,
   },
 };
+export const Colour1 = {
+  args: {
+    text: "Typescript",
+    textColour: "Red",
+    backgroundColour: "Grey",
+  },
+};
+
+export const Colour2 = {
+  args: {
+    text: "Typescript",
+    textColour: "White",
+    backgroundColour: "Blue",
+  },
+};

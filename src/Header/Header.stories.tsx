@@ -44,3 +44,14 @@ export const Liam = {
   },
 };
 
+export const NoButtons = {
+  args: {
+    title: "Test",
+    titleColour: "white",
+    subTitle: "Software Engineer",
+    subTitleColour: "grey",
+    backgroundColour:"red",
+
+  },
+};
+
