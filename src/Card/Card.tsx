@@ -16,10 +16,8 @@ export const Card = (props: CardProps) => {
       <h2
         style={{
           color: props.titleColour,
-          marginBottom: "12px",
-          fontSize: "1.1rem",
-          fontWeight: 600,
         }}
+        className="font-bold text-xl mb-3"
       >
         {props.title}
       </h2>
