@@ -1,7 +1,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import type { RadioGroupProps } from "./RadioGroup.props";
-import { Colors } from "../Colors";
+import { Colors } from "../../Colors";
 import { IoMdCheckmark } from "react-icons/io";
 
 export const RadioGroup = (props: RadioGroupProps) => {

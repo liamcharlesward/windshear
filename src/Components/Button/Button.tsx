@@ -24,6 +24,15 @@ export const Button = (props: ButtonProps) => {
   const link = props.link;
   const newTab = props.newTab;
 
+  const baseClasses =
+    "border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed";
+
+  const variantClasses = {
+    filled: "border-transparent text-white dark:text-black",
+    outlined: "border-transparent text-white dark:text-black",
+    translucent: "enabled:hover:text-white enabled:dark:hover:text-black",
+  };
+
   const className = clsx(
     "border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed",
     props.variant === "filled" &&
@@ -37,26 +46,21 @@ export const Button = (props: ButtonProps) => {
     props.shadow && "drop-shadow-lg",
   );
 
-  //create content variable to avoid repetition
-  const content = (
-    <div
-      className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}
-    >
-      {Icon && <Icon />}
-      {props.text}
-    </div>
-  );
-
   const handleClick = () => {
     if (link) {
-      newTab ? window.open(link, "_blank", "noopener,noreferrer") : (window.location.href = link);
+      return newTab ? window.open(link, "_blank", "noopener,noreferrer") : (window.location.href = link);
     }
-    props.onClick?.();
+    return props.onClick;
   };
 
   return (
     <button onClick={handleClick} disabled={props.disabled} className={className}>
-      {content}
+      <div
+        className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}
+      >
+        {Icon && <Icon />}
+        {props.text}
+      </div>
     </button>
   );
 };
