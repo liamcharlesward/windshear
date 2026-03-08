@@ -1,6 +1,6 @@
 echo "Enter component name?"
 read componentName
-cd /Users/liamward/Code/windshear/src
+cd /Users/liamward/Code/windshear/src/Components
 mkdir ${componentName}
 cd ${componentName}
 
