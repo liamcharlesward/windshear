@@ -6,7 +6,7 @@ export default {
 
 export const Education = {
   args: {
-    sectionTitle: "Education",
+    title: "Education",
     marginTop: "0px",
     backgroundColour: "#0b1220",
     borderColour: "1px solid rgba(255, 255, 255, 0.03)",
@@ -32,9 +32,7 @@ export const Education = {
         description: "A, A, B",
         startDate: "2017",
         endDate: "2019",
-        tags: [
-          { text: "A-Levels", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
-        ],
+        tags: [{ text: "A-Levels", backgroundColour: "#1a2a3a", textColour: "#63b3ed" }],
       },
     ],
   },
@@ -42,7 +40,7 @@ export const Education = {
 
 export const WorkExperience = {
   args: {
-    sectionTitle: "Work Experience",
+    title: "Work Experience",
     marginTop: "0",
     backgroundColour: "#0b1220",
     borderColour: "1px solid rgba(255, 255, 255, 0.03)",
@@ -68,9 +66,7 @@ export const WorkExperience = {
         description: "Internship",
         startDate: "Jun 2022",
         endDate: "Sep 2022",
-        tags: [
-          { text: "Internship", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
-        ],
+        tags: [{ text: "Internship", backgroundColour: "#1a2a3a", textColour: "#63b3ed" }],
       },
     ],
   },
@@ -78,7 +74,7 @@ export const WorkExperience = {
 
 export const Skills = {
   args: {
-    sectionTitle: "Skills",
+    title: "Skills",
     backgroundColour: "#0b1220",
     borderColour: "1px solid rgba(255, 255, 255, 0.03)",
     titleColour: "white",
@@ -120,7 +116,7 @@ export const Skills = {
 
 export const CustomStyled = {
   args: {
-    sectionTitle: "Projects",
+    title: "Projects",
     backgroundColour: "#0d1b2a",
     borderColour: "rgba(99, 179, 237, 0.2)",
     titleColour: "#63b3ed",
@@ -154,7 +150,7 @@ export const CustomStyled = {
 
 export const MinimalWithDefaults = {
   args: {
-    sectionTitle: "Basic Card",
+    title: "Basic Card",
     items: [
       {
         purpose: "List",
@@ -168,6 +164,6 @@ export const MinimalWithDefaults = {
 
 export const EmptyCard = {
   args: {
-    sectionTitle: "Empty Card",
+    title: "Empty Card",
   },
 };
