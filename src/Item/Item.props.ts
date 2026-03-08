@@ -12,4 +12,10 @@ export interface ItemProps {
   endDate?: string;
   tags?: TagProps[];
   textColour?: string;
+  backgroundColour?: string;
+  borderColour?: string;
+  titleColour?: string;
+  subtitleColour?: string;
+  descriptionColour?: string;
+  dateColour?: string;
 }

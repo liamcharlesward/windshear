@@ -1,33 +1,59 @@
 import type { ItemProps } from "./Item.props";
 import { Tag } from "../Tag/Tag";
 
+//todo: add colour options for background, text, title, border etc. to be passed down from card and grid level. This will allow for more customisation and theming options. Allow items to have colours set and specified in its todo.
+
 export const Item = (props: ItemProps) => {
-  const { purpose, title, subtitle, description, startDate, endDate, tags, textColour } = props;
-  const tagsChecked = (tags ?? []); // ensuring tags is an array as it's length is used inside a map of itself
+  const { 
+    purpose, 
+    title, 
+    subtitle, 
+    description, 
+    startDate, 
+    endDate, 
+    tags = [], 
+    textColour = "inherit",
+    backgroundColour,
+    borderColour,
+    titleColour,
+    subtitleColour,
+    descriptionColour,
+    dateColour,
+  } = props;
   
   if (purpose == "List"){ return (
-    <p style={{ color: textColour ?? "inherit", margin: 0, lineHeight: 1.6 }}>
-      <strong>{title}</strong>
-      <br/>
-      {subtitle && (
-        <>
-          {description
-            ? <>{subtitle} — <em>{description}</em></>
-            : subtitle}
-          <br/>
-        </>
-      )}
-        <ul className="flex flex-row gap-x-2">
-          {tagsChecked.map((item, index) => (
-            <li key={index}>
-              <Tag {...item} textColour={item.textColour ?? textColour} />
-            </li>
-          ))}
-        </ul>
-      {(startDate || endDate) && (
-        <>{startDate} - {endDate}</>
-      )}
-    </p>
+    <div style={{ 
+      color: textColour, 
+      margin: 0, 
+      lineHeight: 1.6,
+      backgroundColor: backgroundColour,
+      border: borderColour ? `1px solid ${borderColour}` : undefined,
+      borderRadius: borderColour ? "4px" : undefined,
+      padding: backgroundColour ? "8px" : undefined,
+    }}>
+      <p style={{ margin: 0, lineHeight: 1.6 }}>
+        <strong style={{ color: titleColour ?? textColour }}>{title}</strong>
+        <br/>
+        {subtitle && (
+          <>
+            {description
+              ? <><span style={{ color: subtitleColour ?? textColour }}>{subtitle}</span> — <em style={{ color: descriptionColour ?? textColour }}>{description}</em></>
+              : <span style={{ color: subtitleColour ?? textColour }}>{subtitle}</span>}
+            <br/>
+          </>
+        )}
+          <ul className="flex flex-row gap-x-2">
+            {tags.map((item, index) => (
+              <li key={index}>
+                <Tag {...item} textColour={item.textColour ?? textColour} />
+              </li>
+            ))}
+          </ul>
+        {(startDate || endDate) && (
+          <span style={{ color: dateColour ?? textColour }}>{startDate} - {endDate}</span>
+        )}
+      </p>
+    </div>
   )}
   else if (purpose == "Test"){
     

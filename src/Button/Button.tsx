@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { Link } from "react-router-dom";
 import type { ButtonProps } from "./Button.props";
 import { Colors } from "../Colors";
 
