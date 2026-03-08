@@ -157,7 +157,7 @@ export const SingleColumn = {
   args: {
     cards: [projectCard],
     columns: 1,
-    gap: "24px",
+    inBetweenSpace: 24,
   },
 };
 
@@ -169,7 +169,7 @@ export const TwoColumns = {
   args: {
     cards: [projectCard, educationCard, skillsCard, experienceCard],
     columns: 2,
-    gap: "24px",
+    inBetweenSpace: 24,
   },
 };
 
@@ -181,7 +181,7 @@ export const ThreeColumns = {
   args: {
     cards: [projectCard, educationCard, skillsCard, experienceCard],
     columns: 3,
-    gap: "16px",
+    inBetweenSpace: 16,
   },
 };
 
@@ -193,7 +193,7 @@ export const CustomGap = {
   args: {
     cards: [projectCard, educationCard],
     columns: 2,
-    gap: "32px",
+    inBetweenSpace: 32,
   },
 };
 
@@ -206,7 +206,7 @@ export const FullResumeLayout = {
   args: {
     cards: [projectCard, educationCard, skillsCard, experienceCard],
     columns: 2,
-    gap: "24px",
+    inBetweenSpace: 24,
   },
 };
 
@@ -257,6 +257,158 @@ export const SingleCardNesting = {
       },
     ],
     columns: 1,
-    gap: "24px",
+    inBetweenSpace: 24,
+  },
+};
+
+/**
+ * Proportional Columns with Array
+ * Demonstrates columnSizes property: [1, 3, 2]
+ * Second column is 3x the size of first, third is 2x the size of first
+ */
+export const ProportionalColumns = {
+  args: {
+    cards: [projectCard, educationCard, skillsCard],
+    columnSizes: [1, 3, 2],
+    inBetweenSpace: 24,
+  },
+};
+export const ProportionalColumns2 = {
+  args: {
+    cards: [projectCard, educationCard],
+    columnSizes: [1, 3, 2],
+    inBetweenSpace: 24,
+  },
+};
+
+/**
+ * Wide Left Column
+ * Demonstrates columnSizes property: [2, 1]
+ * Left column is twice as wide as the right column
+ */
+export const WideLeftColumn = {
+  args: {
+    cards: [projectCard, educationCard],
+    columnSizes: [2, 1],
+    inBetweenSpace: 24,
+  },
+};
+
+/**
+ * Asymmetric Three Column Layout
+ * Demonstrates columnSizes property: [1, 2, 1]
+ * Middle column is larger than left and right columns
+ */
+export const AsymmetricThreeColumns = {
+  args: {
+    cards: [projectCard, educationCard, skillsCard, experienceCard, projectCard, skillsCard],
+    columnSizes: [1, 2, 1],
+    inBetweenSpace: 20,
+  },
+};
+
+/**
+ * Complex Proportional Layout
+ * Demonstrates columnSizes property: [1, 2, 3, 1]
+ * Shows how columns scale proportionally with one very large column
+ */
+export const ComplexProportionalLayout = {
+  args: {
+    cards: [
+      projectCard,
+      educationCard,
+      skillsCard,
+      experienceCard,
+      projectCard,
+      educationCard,
+      skillsCard,
+      experienceCard,
+    ],
+    columnSizes: [1, 2, 3, 1],
+    inBetweenSpace: 18,
+  },
+};
+
+const siteDemoTags: TagProps[] = [
+  { text: "Grafana", shadow: false, textColour: "#6b7280", backgroundColour: "rgba(11, 118, 239, 0.2)" },
+  { text: "Prometheus", shadow: false, textColour: "#6b7280", backgroundColour: "rgba(11, 118, 239, 0.2)" },
+  { text: "InfluxDB", shadow: false },
+];
+const siteDemoItems: ItemProps[] = [
+  {
+    purpose: "List",
+    title: "Infrastructure Monitoring",
+    description: "An all in one solution for monitoring systems that can be modified for each use case.",
+    tags: siteDemoTags,
+  },
+];
+
+const siteDemoCard: CardProps = {
+  sectionTitle: "Site Demo",
+  items: siteDemoItems,
+  backgroundColour: "#0b1220",
+  borderColour: "rgba(255, 255, 255, 0.03)",
+  titleColour: "#3b82f6",
+};
+
+export const SiteDemo = {
+  args:{
+    cards:[{
+      "sectionTitle": "Site Demo",
+
+      "items": [{
+        "purpose": "List",
+        "title": "Infrastructure Monitoring",
+        "description": "An all in one solution for monitoring systems that can be modified for each use case.",
+
+        "tags": [{
+          "text": "Grafana",
+          "shadow": false,
+          "textColour": "#6b7280",
+          "backgroundColour": "rgba(11, 118, 239, 0.2)"
+        }, {
+          "text": "Prometheus",
+          "shadow": false,
+          "textColour": "#6b7280",
+          "backgroundColour": "rgba(11, 118, 239, 0.2)"
+        }, {
+          "text": "InfluxDB",
+          "shadow": false
+        }]
+      }],
+
+      "backgroundColour": "#0b1220",
+      "borderColour": "rgba(255, 255, 255, 0.03)",
+      "titleColour": "#e6eef8"
+    }],
+    columns:2,
+    inBetweenSpace:24,
+    backgroundColour:"#071025"
+  },
+};
+
+/**
+ * Grid with Background Color
+ * Demonstrates backgroundColour property on the Grid container
+ */
+export const GridWithBackground = {
+  args: {
+    cards: [projectCard, educationCard, skillsCard, experienceCard],
+    columns: 2,
+    inBetweenSpace: 24,
+    backgroundColour: "rgba(15, 23, 42, 0.8)",
+  },
+};
+
+/**
+ * Dark Theme Grid
+ * Demonstrates dark background with light-themed cards
+ */
+export const DarkThemeGrid = {
+  args: {
+    cards: [projectCard, educationCard, skillsCard, experienceCard],
+    columns: 2,
+    inBetweenSpace: 24,
+    backgroundColour: "#0f172a",
   },
 };

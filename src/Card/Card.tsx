@@ -9,6 +9,7 @@ export const Card = (props: CardProps) => {
     marginTop = "0px",
     backgroundColour,
     borderColour = "rgba(255, 255, 255, 0.03)",
+    borderWidth = 1,
     titleColour = "inherit",
     textColour = "inherit",
   } = props;
@@ -18,9 +19,9 @@ export const Card = (props: CardProps) => {
       style={{
         background: backgroundColour ?? "var()",
         padding: "18px",
-        borderRadius: "10px",
-        border: `1px solid ${borderColour}`,
-        marginBottom: "16px",
+        borderRadius: "1px",
+        border: `${borderWidth}px solid ${borderColour}`,
+        marginBottom: "0px",
         marginTop: marginTop,
       }}
     >
