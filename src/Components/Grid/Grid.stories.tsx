@@ -1,6 +1,6 @@
 import { Grid } from "./Grid";
 import type { CardProps } from "../Card/Card.props";
-import type { ItemProps } from "../../Item/Item.props";
+import type { ItemProps } from "../Item/Item.props";
 import type { TagProps } from "../Tag/Tag.props";
 
 export default {
@@ -342,7 +342,7 @@ const siteDemoItems: ItemProps[] = [
 ];
 
 const siteDemoCard: CardProps = {
-  sectionTitle: "Infrastructure Monitoring",
+  title: "Infrastructure Monitoring",
   items: siteDemoItems,
   textColour: "#cfe7ff",
   backgroundColour: "#0b1220",
