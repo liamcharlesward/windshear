@@ -151,3 +151,23 @@ export const CustomStyled = {
     ],
   },
 };
+
+export const MinimalWithDefaults = {
+  args: {
+    sectionTitle: "Basic Card",
+    items: [
+      {
+        purpose: "List",
+        title: "Default Item",
+        subtitle: "Shows default styling",
+        tags: [{ text: "Default" }],
+      },
+    ],
+  },
+};
+
+export const EmptyCard = {
+  args: {
+    sectionTitle: "Empty Card",
+  },
+};

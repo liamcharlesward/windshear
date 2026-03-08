@@ -47,15 +47,6 @@ export const WithDateRange = {
   },
 };
 
-export const WithTag = {
-  args: {
-    purpose: "List",
-    title: "React",
-    subtitle: "Frontend Framework",
-    tag: "Advanced",
-  },
-};
-
 export const TitleOnly = {
   args: {
     purpose: "List",
@@ -75,14 +66,47 @@ export const CustomColour = {
   },
 };
 
-export const TestOther = {
+export const IndividualElementColors = {
+  args:{
+    purpose:"List",
+    title:"React Developer",
+    subtitle:"Frontend Specialist",
+    description:"Building modern web applications",
+    startDate:"2022",
+    endDate:"Present",
+    titleColour:"#61dafb",
+    subtitleColour:"#21a3c4",
+    descriptionColour:"#0d7ea0",
+    dateColour:"#0a5a7a",
+    tags:[
+      { text: "React", backgroundColour: "#282c34", textColour: "#61dafb" },
+      { text: "TypeScript", backgroundColour: "#3178c6", textColour: "white" },
+    ],
+  },
+};
+
+export const WithBackgroundAndBorder = {
   args: {
-    purpose: "Test",
-    title: "Anthropic",
-    subtitle: "Senior Software Engineer",
-    description: "Full-time",
+    purpose: "List",
+    title: "Full Stack Developer",
+    subtitle: "Tech Company",
+    description: "Leading development team",
     startDate: "Jan 2023",
     endDate: "Present",
-    textColour: "#63b3ed",
+    backgroundColour: "rgba(59, 130, 246, 0.1)",
+    borderColour: "#3b82f6",
+    textColour: "#1e40af",
+    tags: [
+      { text: "Leadership", backgroundColour: "#1e40af", textColour: "white" },
+      { text: "Full Stack", backgroundColour: "#059669", textColour: "white" },
+    ],
+  },
+};
+
+export const MinimalWithDefaults = {
+  args: {
+    purpose: "List",
+    title: "Simple Item",
+    tags: [{ text: "Default" }],
   },
 };
