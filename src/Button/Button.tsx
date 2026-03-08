@@ -21,29 +21,42 @@ export const Button = (props: ButtonProps) => {
   const Icon = props.icon;
   const preset = Colors[props.preset || "primary"];
 
+  const link = props.link;
+  const newTab = props.newTab;
+
+  const className = clsx(
+    "border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed",
+    props.variant === "filled" &&
+    `border-transparent text-white dark:text-black ${preset.bg.base} ${preset.bgDarker.hover}`,
+    props.variant === "outlined" &&
+    `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgDarker.hover}`,
+    props.variant === "translucent" &&
+    `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgTranslucent.base} ${preset.bgDarker.hover}`,
+    props.size ? size[props.size] : "text-md p-2",
+    props.rounding ? rounding[props.rounding] : "rounded-lg",
+    props.shadow && "drop-shadow-lg",
+  );
+
+  //create content variable to avoid repetition
+  const content = (
+    <div className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}>
+      {Icon && <Icon />}
+      {props.text}
+    </div>
+  );
+
+  const handleClick = () => {
+    if (link) {
+      newTab
+        ? window.open(link, "_blank", "noopener,noreferrer")
+        : window.location.href = link;
+    }
+    props.onClick?.();
+  };
+
   return (
-    <button
-      onClick={props.onClick}
-      disabled={props.disabled}
-      className={clsx(
-        " border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed",
-        props.variant === "filled" &&
-          `border-transparent text-white dark:text-black ${preset.bg.base} ${preset.bgDarker.hover}`,
-        props.variant === "outlined" &&
-          `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgDarker.hover}`,
-        props.variant === "translucent" &&
-          `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgTranslucent.base} ${preset.bgDarker.hover}`,
-        props.size ? size[props.size] : "text-md p-2",
-        props.rounding ? rounding[props.rounding] : "rounded-lg",
-        props.shadow && "drop-shadow-lg",
-      )}
-    >
-      <div
-        className={clsx("flex items-center gap-x-1", props.iconPosition == "right" ? "flex-row-reverse" : "flex-row")}
-      >
-        {Icon && <Icon />}
-        {props.text}
-      </div>
+    <button onClick={handleClick} disabled={props.disabled} className={className}>
+      {content}
     </button>
   );
 };
