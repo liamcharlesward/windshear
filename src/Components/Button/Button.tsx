@@ -18,45 +18,51 @@ export const Button = (props: ButtonProps) => {
   };
 
   // TODO: Add support for custom background colours
-  const Icon = props.icon;
   const preset = Colors[props.preset || "primary"];
 
-  const link = props.link;
-  const newTab = props.newTab;
+  const baseClasses =
+    "border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed";
 
-  const className = clsx(
-    "border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed",
-    props.variant === "filled" &&
-      `border-transparent text-white dark:text-black ${preset.bg.base} ${preset.bgDarker.hover}`,
-    props.variant === "outlined" &&
-      `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgDarker.hover}`,
-    props.variant === "translucent" &&
-      `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgTranslucent.base} ${preset.bgDarker.hover}`,
-    props.size ? size[props.size] : "text-md p-2",
-    props.rounding ? rounding[props.rounding] : "rounded-lg",
-    props.shadow && "drop-shadow-lg",
-  );
+  const variantClasses = {
+    filled: "border-transparent text-white dark:text-black",
+    outlined: "border enabled:hover:text-white enabled:dark:hover:text-black",
+    translucent: "enabled:hover:text-white enabled:dark:hover:text-black",
+  };
 
-  //create content variable to avoid repetition
-  const content = (
-    <div
-      className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}
-    >
-      {Icon && <Icon />}
-      {props.text}
-    </div>
-  );
+  const presetVariantClassses = {
+    filled: `${preset.bg.base} ${preset.bgDarker.hover}`,
+    outlined: `${preset.border.base} ${preset.text.base} ${preset.bgDarker.hover}`,
+    translucent: `${preset.border.base} ${preset.text.base} ${preset.bgTranslucent.base} ${preset.bgDarker.hover}`,
+  };
 
   const handleClick = () => {
-    if (link) {
-      newTab ? window.open(link, "_blank", "noopener,noreferrer") : (window.location.href = link);
+    if (props.link) {
+      return props.newTab
+        ? window.open(props.link, "_blank", "noopener,noreferrer")
+        : (window.location.href = props.link);
     }
-    props.onClick?.();
+    return props.onClick;
   };
 
   return (
-    <button onClick={handleClick} disabled={props.disabled} className={className}>
-      {content}
+    <button
+      onClick={handleClick}
+      disabled={props.disabled}
+      className={clsx(
+        baseClasses,
+        variantClasses[props.variant],
+        props.preset && presetVariantClassses[props.variant],
+        props.size ? size[props.size] : "text-md p-2",
+        props.rounding ? rounding[props.rounding] : "rounded-lg",
+        props.shadow && "drop-shadow-lg",
+      )}
+    >
+      <div
+        className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}
+      >
+        {props.icon && <props.icon />}
+        {props.text}
+      </div>
     </button>
   );
 };
