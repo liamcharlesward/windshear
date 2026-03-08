@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import type { ButtonProps } from "./Button.props";
-import { Colors } from "../Colors";
+import { Colors } from "../../Colors";
 
 export const Button = (props: ButtonProps) => {
   const size = {
@@ -27,11 +27,11 @@ export const Button = (props: ButtonProps) => {
   const className = clsx(
     "border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed",
     props.variant === "filled" &&
-    `border-transparent text-white dark:text-black ${preset.bg.base} ${preset.bgDarker.hover}`,
+      `border-transparent text-white dark:text-black ${preset.bg.base} ${preset.bgDarker.hover}`,
     props.variant === "outlined" &&
-    `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgDarker.hover}`,
+      `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgDarker.hover}`,
     props.variant === "translucent" &&
-    `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgTranslucent.base} ${preset.bgDarker.hover}`,
+      `enabled:hover:text-white enabled:dark:hover:text-black ${preset.border.base} ${preset.text.base} ${preset.bgTranslucent.base} ${preset.bgDarker.hover}`,
     props.size ? size[props.size] : "text-md p-2",
     props.rounding ? rounding[props.rounding] : "rounded-lg",
     props.shadow && "drop-shadow-lg",
@@ -39,7 +39,9 @@ export const Button = (props: ButtonProps) => {
 
   //create content variable to avoid repetition
   const content = (
-    <div className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}>
+    <div
+      className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}
+    >
       {Icon && <Icon />}
       {props.text}
     </div>
@@ -47,9 +49,7 @@ export const Button = (props: ButtonProps) => {
 
   const handleClick = () => {
     if (link) {
-      newTab
-        ? window.open(link, "_blank", "noopener,noreferrer")
-        : window.location.href = link;
+      newTab ? window.open(link, "_blank", "noopener,noreferrer") : (window.location.href = link);
     }
     props.onClick?.();
   };

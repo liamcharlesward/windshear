@@ -1,12 +1,11 @@
 import { Grid } from "./Grid";
 import type { CardProps } from "../Card/Card.props";
-import type { ItemProps } from "../Item/Item.props";
+import type { ItemProps } from "../../Item/Item.props";
 import type { TagProps } from "../Tag/Tag.props";
 
 export default {
   component: Grid,
 };
-
 
 // Example Tag data
 const techTags: TagProps[] = [
@@ -96,7 +95,7 @@ const skillItems: ItemProps[] = [
 
 // Example Card data
 const projectCard: CardProps = {
-  sectionTitle: "Projects",
+  title: "Projects",
   items: projectItems,
   backgroundColour: "rgba(59, 130, 246, 0.1)",
   borderColour: "rgba(59, 130, 246, 0.3)",
@@ -104,7 +103,7 @@ const projectCard: CardProps = {
 };
 
 const educationCard: CardProps = {
-  sectionTitle: "Education",
+  title: "Education",
   items: educationItems,
   backgroundColour: "rgba(34, 197, 94, 0.1)",
   borderColour: "rgba(34, 197, 94, 0.3)",
@@ -112,7 +111,7 @@ const educationCard: CardProps = {
 };
 
 const skillsCard: CardProps = {
-  sectionTitle: "Skills & Expertise",
+  title: "Skills & Expertise",
   items: skillItems,
   backgroundColour: "rgba(168, 85, 247, 0.1)",
   borderColour: "rgba(168, 85, 247, 0.3)",
@@ -120,7 +119,7 @@ const skillsCard: CardProps = {
 };
 
 const experienceCard: CardProps = {
-  sectionTitle: "Work Experience",
+  title: "Work Experience",
   items: [
     {
       purpose: "List",
