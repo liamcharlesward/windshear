@@ -6,4 +6,6 @@ export interface TagProps {
   shadow?: boolean,
   textColour?: string,
   backgroundColour?: string,
+  fontSize?: number,
+  fontWeight?: number,
 };

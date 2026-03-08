@@ -330,57 +330,31 @@ export const ComplexProportionalLayout = {
 };
 
 const siteDemoTags: TagProps[] = [
-  { text: "Grafana", shadow: false, textColour: "#6b7280", backgroundColour: "rgba(11, 118, 239, 0.2)" },
-  { text: "Prometheus", shadow: false, textColour: "#6b7280", backgroundColour: "rgba(11, 118, 239, 0.2)" },
+  { text: "Grafana", shadow: false, textColour: "#d9f0ff", backgroundColour: "rgba(11, 118, 239, 0.2)" },
+  { text: "Prometheus", shadow: false, textColour: "#d9f0ff", backgroundColour: "rgba(11, 118, 239, 0.2)" },
   { text: "InfluxDB", shadow: false },
 ];
 const siteDemoItems: ItemProps[] = [
   {
     purpose: "List",
-    title: "Infrastructure Monitoring",
     description: "An all in one solution for monitoring systems that can be modified for each use case.",
     tags: siteDemoTags,
   },
 ];
 
 const siteDemoCard: CardProps = {
-  sectionTitle: "Site Demo",
+  sectionTitle: "Infrastructure Monitoring",
   items: siteDemoItems,
+  textColour: "#cfe7ff",
   backgroundColour: "#0b1220",
   borderColour: "rgba(255, 255, 255, 0.03)",
-  titleColour: "#3b82f6",
+  titleColour: "#e6eef8",
+  rounding: 5,
 };
 
 export const SiteDemo = {
   args:{
-    cards:[{
-      "sectionTitle": "Site Demo",
-
-      "items": [{
-        "purpose": "List",
-        "title": "Infrastructure Monitoring",
-        "description": "An all in one solution for monitoring systems that can be modified for each use case.",
-
-        "tags": [{
-          "text": "Grafana",
-          "shadow": false,
-          "textColour": "#6b7280",
-          "backgroundColour": "rgba(11, 118, 239, 0.2)"
-        }, {
-          "text": "Prometheus",
-          "shadow": false,
-          "textColour": "#6b7280",
-          "backgroundColour": "rgba(11, 118, 239, 0.2)"
-        }, {
-          "text": "InfluxDB",
-          "shadow": false
-        }]
-      }],
-
-      "backgroundColour": "#0b1220",
-      "borderColour": "rgba(255, 255, 255, 0.03)",
-      "titleColour": "#e6eef8"
-    }],
+    cards:[siteDemoCard],
     columns:2,
     inBetweenSpace:24,
     backgroundColour:"#071025"

@@ -48,9 +48,11 @@ export const WithDateRange = {
 };
 
 export const TitleOnly = {
-  args: {
-    purpose: "List",
-    title: "Docker",
+  args:{
+    purpose:"List",
+    title:"Docker",
+    description:"test",
+    subtitle:""
   },
 };
 
@@ -108,5 +110,17 @@ export const MinimalWithDefaults = {
     purpose: "List",
     title: "Simple Item",
     tags: [{ text: "Default" }],
+  },
+};
+
+export const DescriptionOnly = {
+  args: {
+    purpose: "List",
+    title: "Project Status",
+    description: "Currently in development phase with expected completion in Q2",
+    tags: [
+      { text: "In Progress", backgroundColour: "#fbbf24", textColour: "#92400e" },
+      { text: "Q2", backgroundColour: "#10b981", textColour: "white" },
+    ],
   },
 };

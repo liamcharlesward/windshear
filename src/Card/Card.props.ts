@@ -9,4 +9,5 @@ export interface CardProps {
   borderWidth?: number;
   titleColour?: string;
   textColour?: string;
+  rounding?: number;
 }

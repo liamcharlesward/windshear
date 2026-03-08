@@ -12,10 +12,12 @@ export const Card = (props: CardProps) => {
     borderWidth = 1,
     titleColour = "inherit",
     textColour = "inherit",
+    rounding = 0,
   } = props;
 
   return (
     <section
+
       style={{
         background: backgroundColour ?? "var()",
         padding: "18px",
@@ -23,12 +25,16 @@ export const Card = (props: CardProps) => {
         border: `${borderWidth}px solid ${borderColour}`,
         marginBottom: "0px",
         marginTop: marginTop,
+        borderTopLeftRadius: rounding,
+        borderTopRightRadius: rounding,
+        borderBottomLeftRadius: rounding,
+        borderBottomRightRadius: rounding,
       }}
     >
       <h2
         style={{
           color: titleColour,
-          marginBottom: "12px",
+          marginBottom: "5px",
           fontSize: "1.1rem",
           fontWeight: 600,
         }}
