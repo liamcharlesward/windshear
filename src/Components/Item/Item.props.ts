@@ -5,7 +5,7 @@ export type PurposeType = "List" | "Test";
 
 export interface ItemProps {
   purpose: PurposeType ;
-  title: string;
+  title?: string;
   subtitle?: string;
   description?: string;
   startDate?: string;

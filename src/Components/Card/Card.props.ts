@@ -6,6 +6,8 @@ export interface CardProps {
   marginTop?: string;
   backgroundColour?: string;
   borderColour?: string;
+  borderWidth?: number;
   titleColour?: string;
   textColour?: string;
+  rounding?: number;
 }

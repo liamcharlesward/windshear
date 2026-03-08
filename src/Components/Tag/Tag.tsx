@@ -7,7 +7,9 @@ export const Tag = (props: TagProps) => {
     text, 
     shadow = false, 
     textColour = "white", 
-    backgroundColour = "rgba(107, 114, 128, 0.8)" 
+    backgroundColour = "rgba(107, 114, 128, 0.8)",
+    fontSize = 12,
+    fontWeight = 500,
   } = props;
 
   return (
@@ -15,7 +17,7 @@ export const Tag = (props: TagProps) => {
       className={clsx(
         "p-2 inline-flex items-center gap-x-1 rounded-lg bg-gray-500/80 text-white",
         shadow && "shadow-xl",
-      )}  style={{ backgroundColor: backgroundColour, color: textColour }}
+      )}  style={{ fontSize: fontSize, fontWeight: fontWeight, backgroundColor: backgroundColour, color: textColour}}
     >
       {Icon && <Icon />}
       {text && <p>{text}</p>}
