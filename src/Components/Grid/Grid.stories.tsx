@@ -1,6 +1,6 @@
 import { Grid } from "./Grid";
 import type { CardProps } from "../Card/Card.props";
-import type { ItemProps } from "../Item/Item.props";
+import type { ItemProps } from "../../Item/Item.props";
 import type { TagProps } from "../Tag/Tag.props";
 
 export default {

@@ -8,7 +8,6 @@ export const Card = (props: CardProps) => {
     <section
       style={{
         background: props.backgroundColour ?? "var()",
-        // borderRadius: "10px",
         border: `${props.borderColour}`,
       }}
       className="border rounded-lg mb-4 p-4"
