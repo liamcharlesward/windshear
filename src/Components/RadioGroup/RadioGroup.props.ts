@@ -1,13 +1,25 @@
 import type { IconType } from "react-icons";
+import type { Colour } from "../../Types/Colour";
 
-export interface RadioGroupProps {
-  options: RadioGroupOptions[],
+interface BaseRadioGroupProps {
+  options: RadioOptionprops[],
   maxPerRow: 1 | 2 | 3 | 4,
-  accent?: "primary" | "secondary" | "tertiary";
   tick?: boolean
 };
 
-export interface RadioGroupOptions {
+type RadioOptionprops = {
   option: string,
   leadingIcon?: IconType,
 }
+
+type RadioGroupWithPresetAccent = {
+  presetAccent: "primary" | "secondary" | "tertiary";
+  customAccent?: never,
+}
+
+type RadioGroupWithCustomAccent = {
+  presetAccent?: never;
+  customAccent: Colour;
+}
+
+export type RadioGroupProps = BaseRadioGroupProps & (RadioGroupWithPresetAccent | RadioGroupWithCustomAccent);

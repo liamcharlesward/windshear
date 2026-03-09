@@ -6,6 +6,7 @@ export default {
 };
 
 export const Primary = {
+  name: "3 Options, Primary Accent Preset",
   args: {
     options: [
       {
@@ -22,6 +23,28 @@ export const Primary = {
       },
     ],
     maxPerRow: 3,
-    accent: "primary",
+    presetAccent: "primary",
+  },
+};
+
+export const CustomAccent = {
+  name: "3 Options, Custom Accent",
+  args: {
+    options: [
+      {
+        option: "Email",
+        leadingIcon: MdEmail,
+      },
+      {
+        option: "Phone",
+        leadingIcon: MdPhone,
+      },
+      {
+        option: "Smoke Signal",
+        leadingIcon: MdLocalFireDepartment,
+      },
+    ],
+    maxPerRow: 3,
+    customAccent: "#5b0085",
   },
 };
