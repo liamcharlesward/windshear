@@ -11,11 +11,16 @@ export const Tag = (props: TagProps) => {
   return (
     <span
       className={clsx(
-        "p-2 inline-flex items-center gap-x-1 rounded-lg bg-gray-500/80 text-white",
+        "p-2 inline-flex items-center gap-x-1 rounded-lg text-white",
+        !props.customBackgroundColour && "bg-gray-500/80",
         props.shadow && "shadow-xl",
         size[props.size || "md"],
       )}
-      style={{ backgroundColor: props.customBackgroundColour, color: props.customTextColour }}
+      style={
+        props.customBackgroundColour || props.customTextColour
+          ? { backgroundColor: props.customBackgroundColour, color: props.customTextColour }
+          : undefined
+      }
     >
       {props.icon && <props.icon />}
       {props.text && <p>{props.text}</p>}
