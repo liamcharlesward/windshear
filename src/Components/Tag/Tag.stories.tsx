@@ -24,17 +24,19 @@ export const IconOnly = {
   },
 };
 export const Colour1 = {
+  name: "Custom Background and Text Colours",
   args: {
     text: "Typescript",
-    textColour: "Red",
-    backgroundColour: "Grey",
+    customTextColour: "#736B92",
+    customBackgroundColour: "#e5beed",
   },
 };
 
 export const Colour2 = {
+  name: "Custom Text Colour (Default Background)",
   args: {
     text: "Typescript",
     textColour: "White",
-    backgroundColour: "Blue",
+    customTextColour: "#232323",
   },
 };

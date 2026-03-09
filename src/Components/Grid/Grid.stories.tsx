@@ -352,11 +352,11 @@ const siteDemoCard: CardProps = {
 };
 
 export const SiteDemo = {
-  args:{
-    cards:[siteDemoCard],
-    columns:2,
-    inBetweenSpace:24,
-    backgroundColour:"#071025"
+  args: {
+    cards: [siteDemoCard],
+    columns: 2,
+    inBetweenSpace: 24,
+    backgroundColour: "#071025",
   },
 };
 
