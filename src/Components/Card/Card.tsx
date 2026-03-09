@@ -73,7 +73,7 @@ export const Card = (props: CardProps) => {
   const renderItems = () => {
     return items.map((item, index) => (
       <div key={index} style={{ marginBottom: (index < items.length - 1) && props.spacing ?  `${spacing[props.spacing]}px` : "0px" }}>
-        {(item.order ?? ["tag", "text", "date"]).map((piece, index2) => (
+        {(item.order ?? ["text", "date", "tag"]).map((piece, index2) => (
           <div key={index2}>
             {piece === "tag" && item.tags && item.tags.map((tag, tagIndex) => (
               <Tag key={tagIndex} {...tag} />
@@ -102,7 +102,7 @@ export const Card = (props: CardProps) => {
         style={{
           color: props.titleColour,
         }}
-        className="font-bold text-xl mb-3"
+        className="font-bold text-xl"
       >
         {props.title}
       </h2>

@@ -238,14 +238,9 @@ export const MinimalWithDefaults = {
     title: "Basic Card",
     items: [
       {
-        order: ["text", "tag"],
         textProps: {
           subtitle: "Default Item",
-          subtitleColour:"white",
           description: "Shows default styling",
-          descriptionColour:"white",
-          size:"md",
-          shadow:false,
         },
         tags: [{ text: "Default" }],
       },
