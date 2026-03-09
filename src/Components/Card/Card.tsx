@@ -16,6 +16,7 @@ export const Card = (props: CardProps) => {
     lg: "rounded-lg",
     xl: "rounded-xl",
     full: "rounded-full",
+    none: "rounded-none",
   };
 
 

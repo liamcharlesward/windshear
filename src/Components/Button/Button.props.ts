@@ -10,7 +10,7 @@ interface BaseButtonProps {
 
   text?: string;
   size?: "sm" | "md" | "lg";
-  rounding?: "sm" | "md" | "lg" | "xl" | "full";
+  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
 
   shadow?: boolean;
   disabled?: boolean;
