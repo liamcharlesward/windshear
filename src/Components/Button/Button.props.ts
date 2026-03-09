@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons";
-import type { HexColor } from "../../Types/HexColor";
+import type { Colour } from "../../Types/Colour";
 
 // TODO: Conditionalise props
 interface BaseButtonProps {
@@ -27,13 +27,13 @@ type ButtonWithoutIcon = {
 }
 
 type ButtonWithPreset = {
-  preset: "primary" | "secondary" | "tertiary" | "confirm" | "destructive";
+  preset: "primary" | "secondary" | "tertiary" | "confirmation" | "destructive";
   customColour?: never,
 }
 
 type ButtonWithCustomColour = {
   preset?: never,
-  customColour?: HexColor,
+  customColour?: Colour,
 }
 
 export type ButtonProps = BaseButtonProps & (ButtonWithIcon | ButtonWithoutIcon) & (ButtonWithPreset | ButtonWithCustomColour);

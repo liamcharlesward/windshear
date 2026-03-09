@@ -1,8 +1,5 @@
 import { Button } from "./Button";
-import { FaTrash } from "react-icons/fa";
-import { FaPaperPlane } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
-import { FaAddressBook } from "react-icons/fa6";
+import { FaTrash, FaCameraRetro, FaPaperPlane, FaInfoCircle, FaAddressBook } from "react-icons/fa";
 
 export default {
   component: Button,
@@ -39,19 +36,30 @@ export const Tertiary = {
   },
 };
 
+export const Neutral = {
+  name: "Neutral Preset (Outlined)",
+  args: {
+    text: "Open Camera",
+    variant: "outlined",
+    icon: FaCameraRetro,
+    preset: "neutral",
+    iconPosition: "left",
+  },
+};
+
 export const Confirmation = {
   name: "Confirm Preset (Translucent)",
   args: {
     text: "Send",
     variant: "translucent",
     icon: FaPaperPlane,
-    preset: "confirm",
+    preset: "confirmation",
     iconPosition: "right",
   },
 };
 
 export const Destructive = {
-  name: "Destructive Preset (Filled)",
+  name: "Destructive Preset (Translucent)",
   args: {
     text: "Delete",
     variant: "translucent",

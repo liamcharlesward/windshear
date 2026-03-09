@@ -1,8 +1,10 @@
 import { useState } from "react";
 import clsx from "clsx";
-import type { RadioGroupProps } from "./RadioGroup.props";
-import { Colors } from "../../Types/Colors";
+import { transparentize } from "colorizr";
 import { IoMdCheckmark } from "react-icons/io";
+import { GlobalColourPresets } from "../../Constants/GlobalPresets";
+import type { RadioGroupProps } from "./RadioGroup.props";
+import type { Colour } from "../../Types/Colour";
 
 export const RadioGroup = (props: RadioGroupProps) => {
   // TODO: Extract state
@@ -15,23 +17,32 @@ export const RadioGroup = (props: RadioGroupProps) => {
     4: "grid-cols-4",
   };
 
-  const accent = Colors[props.accent || "primary"];
+  const computedColourStyles = (colour: Colour): React.CSSProperties => {
+    return {
+      "--colour": colour,
+      "--colour-translucent": transparentize(colour, 0.8),
+    } as React.CSSProperties;
+  };
 
   const radioOptions = props.options.map((option, index) => {
     const LeadingIcon = option.leadingIcon;
     return (
       <div
         className={clsx(
-          "flex justify-between cursor-pointer p-2 rounded-md border-2 transition-colors group",
-          accent.border.hover,
-          accent.bgTranslucent.hover,
-          accent.text.hover,
+          "flex justify-between cursor-pointer p-2 rounded-md border-2 transition-colors group hover:border-(--colour) hover:bg-(--colour-translucent) hover:text-(--colour)",
           selected === index
-            ? [accent.border.base, accent.bgTranslucent.base, accent.text.base]
+            ? "border-(--colour) bg-(--colour-translucent) text-(--colour)"
             : "border-neutral-500 bg-neutral-500/20 text-neutral-500",
         )}
         key={index}
         onClick={() => setSelected(index)}
+        style={
+          props.customAccent
+            ? computedColourStyles(props.customAccent)
+            : props.presetAccent
+              ? computedColourStyles(GlobalColourPresets[props.presetAccent] as Colour)
+              : undefined
+        }
       >
         <div className="flex flex-row items-center gap-x-1">
           {LeadingIcon && <LeadingIcon className="text-xl" />}
@@ -39,15 +50,13 @@ export const RadioGroup = (props: RadioGroupProps) => {
         </div>
         <div
           className={clsx(
-            "rounded-full bg-white aspect-square w-6 flex items-center justify-center border",
-            accent.border.groupHover,
-            selected === index ? accent.border.base : "border-neutral-500",
+            "rounded-full bg-white aspect-square w-6 flex items-center justify-center border group-hover:border-(--colour)",
+            selected === index ? "border:[var(--colour)]" : "border-neutral-500",
           )}
         >
           <div
             className={clsx(
-              "rounded-full w-4/5 aspect-square flex items-center justify-center transition-opacity",
-              accent.bgDarker.base,
+              "rounded-full w-4/5 aspect-square flex items-center justify-center transition-opacity bg-(--colour) group-hover:bg-(--colour)",
               selected === index ? "opacity-100" : "opacity-0",
             )}
           >

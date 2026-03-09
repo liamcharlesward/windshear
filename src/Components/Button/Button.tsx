@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import type { ButtonProps } from "./Button.props";
-import { Colors } from "../../Types/Colors";
 import { transparentize, darken } from "colorizr";
-import type { HexColor } from "../../Types/HexColor";
+import type { Colour } from "../../Types/Colour";
+import { GlobalColourPresets } from "../../Constants/GlobalPresets";
 
 export const Button = (props: ButtonProps) => {
   const size = {
@@ -20,23 +20,25 @@ export const Button = (props: ButtonProps) => {
     none: "rounded-none",
   };
 
-  const preset = Colors[props.preset || "primary"];
-
   const baseClasses =
     "border-2 transition-colors duration-200 cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed";
 
   const variantClasses = {
-    filled: "border-transparent text-white dark:text-black bg-[var(--btn-color)] hover:bg-[var(--btn-hover)]",
+    filled: "border-transparent text-white dark:text-black bg-[var(--colour-bg)] hover:bg-[var(--colour-hover)]",
     outlined:
-      "border enabled:hover:text-white enabled:dark:hover:text-black border-[var(--btn-color)] hover:bg-[var(--btn-color)] text-[var(--btn-color)]",
+      "border enabled:hover:text-white enabled:dark:hover:text-black border-[var(--colour-bg)] hover:bg-[var(--colour-bg)] text-[var(--colour-bg)]",
     translucent:
-      "enabled:hover:text-white enabled:dark:hover:text-black bg-[var(--btn-translucent)] border-[var(--btn-color)] hover:bg-[var(--btn-color)] text-[var(--btn-color)]",
+      "enabled:hover:text-white enabled:dark:hover:text-black bg-[var(--colour-translucent)] border-[var(--colour-bg)] hover:bg-[var(--colour-bg)] text-[var(--colour-bg)]",
   };
 
-  const presetVariantClassses = {
-    filled: `${preset.bg.base} ${preset.bgDarker.hover}`,
-    outlined: `${preset.border.base} ${preset.text.base} ${preset.bgDarker.hover}`,
-    translucent: `${preset.border.base} ${preset.text.base} ${preset.bgTranslucent.base} ${preset.bgDarker.hover}`,
+  const ButtonSpecificColourPresets = {
+    confirmation: "#05df72",
+    destructive: "#ff6467",
+  };
+
+  const ButtonColourPresets = {
+    ...GlobalColourPresets,
+    ...ButtonSpecificColourPresets,
   };
 
   const handleClick = () => {
@@ -48,11 +50,11 @@ export const Button = (props: ButtonProps) => {
     return props.onClick;
   };
 
-  const computedCustomColourStyles = (colour: HexColor): React.CSSProperties => {
+  const computedColourStyles = (colour: Colour): React.CSSProperties => {
     return {
-      "--btn-color": colour,
-      "--btn-hover": darken(colour, 7),
-      "--btn-translucent": transparentize(colour, 0.8),
+      "--colour-bg": colour,
+      "--colour-hover": darken(colour, 7),
+      "--colour-translucent": transparentize(colour, 0.8),
     } as React.CSSProperties;
   };
 
@@ -63,13 +65,18 @@ export const Button = (props: ButtonProps) => {
       className={clsx(
         baseClasses,
         variantClasses[props.variant],
-        props.preset && presetVariantClassses[props.variant],
         props.size ? size[props.size] : "text-md p-2",
         props.rounding ? rounding[props.rounding] : "rounded-lg",
         props.shadow && "drop-shadow-lg",
       )}
       // style for custom background colour
-      style={props.customColour ? computedCustomColourStyles(props.customColour) : undefined}
+      style={
+        props.customColour
+          ? computedColourStyles(props.customColour)
+          : props.preset
+            ? computedColourStyles(ButtonColourPresets[props.preset] as Colour)
+            : undefined
+      }
     >
       <div
         className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}

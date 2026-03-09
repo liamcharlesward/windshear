@@ -27,8 +27,8 @@ export const Colour1 = {
   name: "Custom Background and Text Colours",
   args: {
     text: "Typescript",
-    customTextColour: "#736B92",
-    customBackgroundColour: "#e5beed",
+    textColour: "#736B92",
+    backgroundColour: "#e5beed",
   },
 };
 
@@ -36,7 +36,6 @@ export const Colour2 = {
   name: "Custom Text Colour (Default Background)",
   args: {
     text: "Typescript",
-    textColour: "White",
-    customTextColour: "#232323",
+    textColour: "#232323",
   },
 };
