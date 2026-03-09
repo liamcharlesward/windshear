@@ -1,5 +1,5 @@
 import type { TagProps } from "../Tag/Tag.props";
-import type { Colour } from "../../Types/HexColor";
+import type { Colour } from "../../Types/Colour";
 
 export interface TextProps {
   subtitle?: string;
