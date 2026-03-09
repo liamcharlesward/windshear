@@ -6,8 +6,8 @@ export const Card = (props: CardProps) => {
   const items = props.items || [];
     const textSize = {
     sm: "text-sm p-1",
-    md: "text-md p-2",
-    lg: "text-xl p-3",
+    md: "text-md p-1",
+    lg: "text-xl p-2",
   };
   
   const rounding = {
@@ -38,7 +38,7 @@ export const Card = (props: CardProps) => {
       }}
       className={clsx(
         props.rounding ? rounding[props.rounding] : "rounded-lg",
-        textProps.size ? textSize[textProps.size] : "text-md"
+        textProps.size ? textSize[textProps.size] : "text-"
       )}
     >
       {textProps.subtitle && (
@@ -102,7 +102,7 @@ export const Card = (props: CardProps) => {
         style={{
           color: props.titleColour,
         }}
-        className="font-bold text-xl"
+        className="font-bold text-xl mb-1"
       >
         {props.title}
       </h2>

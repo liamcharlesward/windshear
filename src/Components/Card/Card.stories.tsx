@@ -10,6 +10,8 @@ export const Education = {
     backgroundColour:"#0b1220",
     borderColour:"#d9f0ff",
     titleColour:"#d9f0ff",
+    rounding:"lg",
+    spacing: "md",
     items:[
       {
         order:["text", "tag", "date"],
@@ -56,8 +58,7 @@ export const Education = {
           borderColour:"#d9f0ff",
         },
       },
-    ],
-    rounding:"lg"
+    ]
   },
 };
 
