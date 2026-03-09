@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import type { ButtonProps } from "./Button.props";
 import { Colors } from "../../Colors";
+import { transparentize, darken } from "colorizr";
+import type { HexColor } from "../../Types/HexColor";
 
 export const Button = (props: ButtonProps) => {
   const size = {
@@ -17,16 +19,17 @@ export const Button = (props: ButtonProps) => {
     full: "rounded-full",
   };
 
-  // TODO: Add support for custom background colours
   const preset = Colors[props.preset || "primary"];
 
   const baseClasses =
-    "border-2 transition-colors cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed";
+    "border-2 transition-colors duration-200 cursor-pointer disabled:border-transparent disabled:bg-slate-300 disabled:cursor-not-allowed";
 
   const variantClasses = {
-    filled: "border-transparent text-white dark:text-black",
-    outlined: "border enabled:hover:text-white enabled:dark:hover:text-black",
-    translucent: "enabled:hover:text-white enabled:dark:hover:text-black",
+    filled: "border-transparent text-white dark:text-black bg-[var(--btn-color)] hover:bg-[var(--btn-hover)]",
+    outlined:
+      "border enabled:hover:text-white enabled:dark:hover:text-black border-[var(--btn-color)] hover:bg-[var(--btn-color)] text-[var(--btn-color)]",
+    translucent:
+      "enabled:hover:text-white enabled:dark:hover:text-black bg-[var(--btn-translucent)] border-[var(--btn-color)] hover:bg-[var(--btn-color)] text-[var(--btn-color)]",
   };
 
   const presetVariantClassses = {
@@ -44,6 +47,14 @@ export const Button = (props: ButtonProps) => {
     return props.onClick;
   };
 
+  const computedCustomColourStyles = (colour: HexColor): React.CSSProperties => {
+    return {
+      "--btn-color": colour,
+      "--btn-hover": darken(colour, 10),
+      "--btn-translucent": transparentize(colour, 0.8),
+    } as React.CSSProperties;
+  };
+
   return (
     <button
       onClick={handleClick}
@@ -56,6 +67,8 @@ export const Button = (props: ButtonProps) => {
         props.rounding ? rounding[props.rounding] : "rounded-lg",
         props.shadow && "drop-shadow-lg",
       )}
+      // style for custom background colour
+      style={props.customColour ? computedCustomColourStyles(props.customColour) : undefined}
     >
       <div
         className={clsx("flex items-center gap-x-1", props.iconPosition === "right" ? "flex-row-reverse" : "flex-row")}
