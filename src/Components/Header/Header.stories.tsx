@@ -5,26 +5,26 @@ export default {
 };
 
 export const Alex = {
-  args:{
-    title:"Alex Lancaster",
-    titleColour:"white",
-    subTitle:"Software Engineer",
-    subTitleColour:"grey",
-    backgroundColour:"#071025",
-    buttons:[
+  args: {
+    title: "Alex Lancaster",
+    titleColour: "white",
+    subTitle: "Software Engineer",
+    subTitleColour: "#727272",
+    backgroundColour: "#071025",
+    buttons: [
       {
-        variant:"filled",
-        text:"Home",
+        variant: "filled",
+        text: "Home",
       },
       {
-        variant:"outlined",
-        text:"Projects",
+        variant: "outlined",
+        text: "Projects",
       },
       {
-        variant:"translucent",
-        text:"Contacts",
-      }
-    ]
+        variant: "translucent",
+        text: "Contacts",
+      },
+    ],
   },
 };
 
@@ -33,14 +33,14 @@ export const Liam = {
     title: "Liam Ward",
     titleColour: "white",
     subTitle: "Software Engineer",
-    subTitleColour: "grey",
-    backgroundColour:"red",
+    subTitleColour: "#727272",
+    backgroundColour: "#8B0000",
     buttons: [
       {
         variant: "outlined",
         text: "Home",
-      }
-    ]
+      },
+    ],
   },
 };
 
@@ -49,9 +49,7 @@ export const NoButtons = {
     title: "Test",
     titleColour: "white",
     subTitle: "Software Engineer",
-    subTitleColour: "grey",
-    backgroundColour:"red",
-
+    subTitleColour: "#727272",
+    backgroundColour: "red",
   },
 };
-

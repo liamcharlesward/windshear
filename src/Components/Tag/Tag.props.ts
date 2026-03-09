@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons"
-import type { Colour } from "../../Types/HexColor";
+import type { Colour } from "../../Types/Colour";
 
 export interface TagProps {
   text?: string,

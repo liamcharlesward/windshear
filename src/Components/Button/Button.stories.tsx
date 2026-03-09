@@ -45,7 +45,7 @@ export const Confirmation = {
     text: "Send",
     variant: "translucent",
     icon: FaPaperPlane,
-    preset: "confirm",
+    preset: "confirmation",
     iconPosition: "right",
   },
 };
