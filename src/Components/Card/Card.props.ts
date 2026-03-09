@@ -42,7 +42,7 @@ export interface CardProps {
   borderColour?: Colour;
   backgroundColour?: Colour;
   rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";// rounds corners
-  marginTop?: string;
+  spacing?: "none" | "sm" | "md" | "lg";// spacing between items
 
   items?: ItemProps[];
 }

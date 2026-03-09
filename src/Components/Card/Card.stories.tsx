@@ -5,59 +5,59 @@ export default {
 };
 
 export const Education = {
-  args: {
-    title: "Education",
-    marginTop: "0px",
-    backgroundColour: "#0b1220",
-    borderColour: "1px solid rgba(255, 255, 255, 0.03)",
-    titleColour: "#d9f0ff",
-    items: [
+  args:{
+    title:"Education",
+    backgroundColour:"#0b1220",
+    borderColour:"1px solid rgba(255, 255, 255, 0.03)",
+    titleColour:"#d9f0ff",
+    items:[
       {
-        order: ["text", "tag", "date"],
-        textProps: {
-          subtitle: "University of Manchester",
-          subtitleColour: "#d9f0ff",
-          description: "BSc Computer Science - First Class Honours",
-          descriptionColour: "#cfe7ff",
-          size: "md",
-          shadow: false,
-          borderColour: "#d9f0ff",
+        order:["text", "tag", "date"],
+        textProps:{
+          subtitle:"University of Manchester",
+          subtitleColour:"#d9f0ff",
+          description:"BSc Computer Science - First Class Honours",
+          descriptionColour:"#cfe7ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
         },
-        tags: [
+        tags:[
           { text: "Degree", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
           { text: "First Class", backgroundColour: "#1a3a2a", textColour: "#68d391" },
         ],
-        dateProps: {
-          startDate: "2019",
-          endDate: "2022",
-          dateColour: "#d9f0ff",
-          size: "md",
-          shadow: false,
-          borderColour: "#d9f0ff",
+        dateProps:{
+          startDate:"2019",
+          endDate:"2022",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
         },
       },
       {
-        order: ["text", "tag", "date"],
-        textProps: {
-          subtitle: "Stockport College",
-          subtitleColour: "#d9f0ff",
-          description: "Mathematics, Physics, Computer Science - A, A, B",
-          descriptionColour: "#cfe7ff",
-          size: "md",
-          shadow: false,
-          borderColour: "#d9f0ff",
+        order:["text", "tag", "date"],
+        textProps:{
+          subtitle:"Stockport College",
+          subtitleColour:"#d9f0ff",
+          description:"Mathematics, Physics, Computer Science - A, A, B",
+          descriptionColour:"#cfe7ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
         },
-        tags: [{ text: "A-Levels", backgroundColour: "#1a2a3a", textColour: "#63b3ed" }],
-        dateProps: {
-          startDate: "2017",
-          endDate: "2019",
-          dateColour: "#d9f0ff",
-          size: "md",
-          shadow: false,
-          borderColour: "#d9f0ff",
+        tags:[{ text: "A-Levels", backgroundColour: "#1a2a3a", textColour: "#63b3ed" }],
+        dateProps:{
+          startDate:"2017",
+          endDate:"2019",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
         },
       },
     ],
+    rounding:"lg"
   },
 };
 

@@ -18,6 +18,12 @@ export const Card = (props: CardProps) => {
     full: "rounded-full",
     none: "rounded-none",
   };
+  const spacing = {
+    none: "0",
+    sm: "2",
+    md: "6",
+    lg: "12",
+  };
 
 
   const renderText = (textProps: TextProps) => (
@@ -66,7 +72,7 @@ export const Card = (props: CardProps) => {
 
   const renderItems = () => {
     return items.map((item, index) => (
-      <div key={index} style={{ marginBottom: index < items.length - 1 ? "12px" : "0" }}>
+      <div key={index} style={{ marginBottom: (index < items.length - 1) && props.spacing ?  `${spacing[props.spacing]}px` : "0px" }}>
         {(item.order ?? ["tag", "text", "date"]).map((piece, index2) => (
           <div key={index2}>
             {piece === "tag" && item.tags && item.tags.map((tag, tagIndex) => (
@@ -86,7 +92,6 @@ export const Card = (props: CardProps) => {
         backgroundColor: props.backgroundColour,
         borderColor: props.borderColour,
         borderWidth: props.borderWidth ? `${props.borderWidth}px` : undefined,
-        marginTop: props.marginTop,
       }}
       className={clsx(
         props.rounding ? rounding[props.rounding] : "rounded-lg",
