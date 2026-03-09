@@ -8,19 +8,19 @@ export const Education = {
   args:{
     title:"Education",
     backgroundColour:"#0b1220",
-    borderColour:"1px solid rgba(255, 255, 255, 0.03)",
+    borderColour:"#d9f0ff",
     titleColour:"#d9f0ff",
     items:[
       {
         order:["text", "tag", "date"],
         textProps:{
           subtitle:"University of Manchester",
-          subtitleColour:"#d9f0ff",
+          subtitleColour:"white",
           description:"BSc Computer Science - First Class Honours",
-          descriptionColour:"#cfe7ff",
+          descriptionColour:"white",
           size:"md",
           shadow:false,
-          borderColour:"#d9f0ff",
+          borderColour:"white",
         },
         tags:[
           { text: "Degree", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
@@ -41,7 +41,7 @@ export const Education = {
           subtitle:"Stockport College",
           subtitleColour:"#d9f0ff",
           description:"Mathematics, Physics, Computer Science - A, A, B",
-          descriptionColour:"#cfe7ff",
+          descriptionColour:"#ffffff",
           size:"md",
           shadow:false,
           borderColour:"#d9f0ff",
@@ -64,37 +64,51 @@ export const Education = {
 export const WorkExperience = {
   args: {
     title: "Work Experience",
-    marginTop: "0",
+    titleColour: "white",
     backgroundColour: "#0b1220",
     borderColour: "1px solid rgba(255, 255, 255, 0.03)",
-    titleColour: "white",
-    textColour: "white",
     items: [
       {
-        order: ["card", "tag", "date"],
-        CardTextProps: {
-          subtitle: "Anthropic",
-          description: "Senior Software Engineer - Full-time",
+        order: ["text", "tag", "date"],
+        textProps: {
+          subtitle:"Anthropic",
+          subtitleColour:"white",
+          description:"Senior Software Engineer - Full-time",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
         },
         tags: [
           { text: "Full-time", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
           { text: "AI", backgroundColour: "#2a1a3a", textColour: "#b794f4" },
         ],
-        DateTextProps: {
+        dateProps: {
           startDate: "Jan 2023",
           endDate: "Present",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
         },
       },
       {
-        order: ["card", "tag", "date"],
-        CardTextProps: {
+        order: ["text", "tag", "date"],
+        textProps: {
           subtitle: "Google",
+          subtitleColour:"white",
           description: "Software Engineer Intern - Internship",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
         },
         tags: [{ text: "Internship", backgroundColour: "#1a2a3a", textColour: "#63b3ed" }],
-        DateTextProps: {
+        dateProps: {
           startDate: "Jun 2022",
           endDate: "Sep 2022",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
         },
       },
     ],
@@ -110,10 +124,14 @@ export const Skills = {
     textColour: "white",
     items: [
       {
-        order: ["card", "tag"],
-        CardTextProps: {
+        order: ["text", "tag"],
+        textProps: {
           subtitle: "Frontend",
+          subtitleColour:"white",
           description: "React, TypeScript, Tailwind CSS",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
         },
         tags: [
           { text: "React", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
@@ -122,10 +140,14 @@ export const Skills = {
         ],
       },
       {
-        order: ["card", "tag"],
-        CardTextProps: {
+        order: ["text", "tag"],
+        textProps: {
           subtitle: "Backend",
+          subtitleColour:"white",
           description: "Node.js, Python, PostgreSQL",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
         },
         tags: [
           { text: "Node.js", backgroundColour: "#1a3a2a", textColour: "#68d391" },
@@ -134,10 +156,14 @@ export const Skills = {
         ],
       },
       {
-        order: ["card", "tag"],
-        CardTextProps: {
+        order: ["text", "tag"],
+        textProps: {
           subtitle: "Tools",
+          subtitleColour:"white",
           description: "Git, Docker, AWS",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
         },
         tags: [
           { text: "Git", backgroundColour: "#2a1a1a", textColour: "#fc8181" },
@@ -158,33 +184,49 @@ export const CustomStyled = {
     textColour: "#e2e8f0",
     items: [
       {
-        order: ["card", "tag", "date"],
-        CardTextProps: {
+        order: ["text", "tag", "date"],
+        textProps: {
           subtitle: "Portfolio Website",
+          subtitleColour:"white",
           description: "Personal site built with React & TypeScript",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
         },
         tags: [
           { text: "React", backgroundColour: "#0d2a3a", textColour: "#63b3ed" },
           { text: "TypeScript", backgroundColour: "#0d2a3a", textColour: "#63b3ed" },
         ],
-        DateTextProps: {
+        dateProps: {
           startDate: "Mar 2024",
           endDate: "Present",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
         },
       },
       {
-        order: ["card", "tag", "date"],
-        CardTextProps: {
+        order: ["text", "tag", "date"],
+        textProps: {
           subtitle: "Component Library",
+          subtitleColour:"white",
           description: "Reusable UI components with Storybook",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
         },
         tags: [
           { text: "Storybook", backgroundColour: "#2a1a2a", textColour: "#f687b3" },
           { text: "UI", backgroundColour: "#2a1a2a", textColour: "#f687b3" },
         ],
-        DateTextProps: {
+        dateProps: {
           startDate: "Jan 2024",
           endDate: "Feb 2024",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
         },
       },
     ],
@@ -196,10 +238,14 @@ export const MinimalWithDefaults = {
     title: "Basic Card",
     items: [
       {
-        order: ["card", "tag"],
-        CardTextProps: {
+        order: ["text", "tag"],
+        textProps: {
           subtitle: "Default Item",
+          subtitleColour:"white",
           description: "Shows default styling",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
         },
         tags: [{ text: "Default" }],
       },
