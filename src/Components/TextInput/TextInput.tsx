@@ -1,8 +1,9 @@
 import type { TextInputProps } from "./TextInput.props";
+import type { Colour } from "../../Types/Colour";
 import { useState } from "react";
 import clsx from "clsx";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Colors } from "../../Types/Colors";
+import { GlobalColourPresets } from "../../Constants/GlobalPresets";
 
 export const TextInput = (props: TextInputProps) => {
   const [type, setType] = useState(props.type);
@@ -21,16 +22,27 @@ export const TextInput = (props: TextInputProps) => {
     }
   };
 
-  const accent = Colors[props.accent || "primary"];
+  // Redundant in this component?
+  const computedColourStyles = (colour: Colour): React.CSSProperties => {
+    return {
+      "--colour": colour,
+    } as React.CSSProperties;
+  };
 
   return (
     <div className="w-auto">
       <div
         className={clsx(
-          "transition-colors cursor-text p-2 bg-neutral-400/20 placeholder-neutral-400 items-center gap-x-2 inline-flex",
+          "transition-all duration-200 cursor-text p-2 bg-neutral-400/20 placeholder-neutral-400 items-center gap-x-2 inline-flex hover:border-(--colour) focus-within:border-(--colour)",
           variantStyles[props.variant],
-          [accent.border.hover, accent.border.focusWithin],
         )}
+        style={
+          props.customAccent
+            ? computedColourStyles(props.customAccent)
+            : props.presetAccent
+              ? computedColourStyles(GlobalColourPresets[props.presetAccent] as Colour)
+              : undefined
+        }
       >
         {LeadingIcon && (
           <div className="text-neutral-400">

@@ -6,21 +6,22 @@ export default {
 };
 
 export const Outlined = {
+  name: "Outlined with Primary Accent",
   args: {
     type: "standard",
     placeholder: "Outlined input",
     variant: "outlined",
-    accent: "primary",
+    presetAccent: "primary",
   },
 };
 
 export const LeadingIcon = {
-  name: "Underlined with Leading Icon",
+  name: "Underlined with Leading Icon & Custom Accent",
   args: {
     type: "standard",
     placeholder: "Underlined input w/ icon",
     leadingIcon: FaEnvelope,
     variant: "underlined",
-    accent: "secondary",
+    customAccent: "#ff0000",
   },
 };
