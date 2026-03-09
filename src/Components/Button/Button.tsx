@@ -50,7 +50,7 @@ export const Button = (props: ButtonProps) => {
   const computedCustomColourStyles = (colour: HexColor): React.CSSProperties => {
     return {
       "--btn-color": colour,
-      "--btn-hover": darken(colour, 10),
+      "--btn-hover": darken(colour, 7),
       "--btn-translucent": transparentize(colour, 0.8),
     } as React.CSSProperties;
   };

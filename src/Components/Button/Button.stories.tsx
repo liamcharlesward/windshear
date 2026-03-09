@@ -9,6 +9,7 @@ export default {
 };
 
 export const Primary = {
+  name: "Primary Preset (Filled)",
   args: {
     text: "Primary Button",
     variant: "filled",
@@ -20,6 +21,7 @@ export const Primary = {
 };
 
 export const Secondary = {
+  name: "Secondary Preset (Filled)",
   args: {
     text: "Secondary Button",
     variant: "filled",
@@ -28,6 +30,7 @@ export const Secondary = {
 };
 
 export const Tertiary = {
+  name: "Tertiary Preset (Outlined)",
   args: {
     text: "Information",
     variant: "outlined",
@@ -37,6 +40,7 @@ export const Tertiary = {
 };
 
 export const Confirmation = {
+  name: "Confirm Preset (Translucent)",
   args: {
     text: "Send",
     variant: "translucent",
@@ -47,6 +51,7 @@ export const Confirmation = {
 };
 
 export const Destructive = {
+  name: "Destructive Preset (Filled)",
   args: {
     text: "Delete",
     variant: "translucent",
@@ -56,12 +61,35 @@ export const Destructive = {
   },
 };
 
-export const CustomColour = {
+export const CustomColourFill = {
+  name: "Custom Colour (Filled)",
+  args: {
+    text: "Contacts",
+    variant: "filled",
+    icon: FaAddressBook,
+    iconPosition: "left",
+    customColour: "#5b0085",
+  },
+};
+
+export const CustomColourOut = {
+  name: "Custom Colour (Outlined)",
+  args: {
+    text: "Contacts",
+    variant: "outlined",
+    icon: FaAddressBook,
+    iconPosition: "left",
+    customColour: "#5b0085",
+  },
+};
+
+export const CustomColourTrans = {
+  name: "Custom Colour (Translucent)",
   args: {
     text: "Contacts",
     variant: "translucent",
     icon: FaAddressBook,
     iconPosition: "left",
-    customColour: "#9CAF88",
+    customColour: "#5b0085",
   },
 };
