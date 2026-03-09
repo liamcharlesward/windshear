@@ -2,7 +2,7 @@ import type { TextInputProps } from "./TextInput.props";
 import { useState } from "react";
 import clsx from "clsx";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Colors } from "../../Colors";
+import { Colors } from "../../Types/Colors";
 
 export const TextInput = (props: TextInputProps) => {
   const [type, setType] = useState(props.type);

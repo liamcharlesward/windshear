@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import type { ButtonProps } from "./Button.props";
-import { Colors } from "../../Colors";
+import { Colors } from "../../Types/Colors";
 import { transparentize, darken } from "colorizr";
 import type { HexColor } from "../../Types/HexColor";
 
