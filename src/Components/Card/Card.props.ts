@@ -6,6 +6,7 @@ export interface TextProps {
   subtitleColour?: Colour;
   description?: string;
   descriptionColour?: Colour;
+  
   size?: "sm" | "md" | "lg"
   rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
   shadow?: boolean,
@@ -17,6 +18,7 @@ export interface DateProps {
   startDate?: string;
   endDate?: string;
   dateColour?: Colour;
+
   size?: "sm" | "md" | "lg"
   rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
   shadow?: boolean,
@@ -25,6 +27,7 @@ export interface DateProps {
 }
 export interface ItemProps {
   order?: ("tag" | "text" | "date")[]
+
   tags?: TagProps[];
   textProps?: TextProps;
   dateProps?: DateProps;
