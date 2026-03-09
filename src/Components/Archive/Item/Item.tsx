@@ -1,5 +1,5 @@
 import type { ItemProps } from "./Item.props";
-import { Tag } from "../Tag/Tag";
+import { Tag } from "../../Tag/Tag";
 
 //todo: add colour options for background, text, title, border etc. to be passed down from card and grid level. This will allow for more customisation and theming options. Allow items to have colours set and specified in its todo.
 

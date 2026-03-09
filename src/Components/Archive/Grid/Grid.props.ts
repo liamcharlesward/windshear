@@ -1,4 +1,4 @@
-import type { CardProps } from "../Card/Card.props";
+import type { CardProps } from "../../Card/Card.props";
 
 export interface GridProps {
   cards: CardProps[];

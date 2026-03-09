@@ -1,16 +1,94 @@
-import type { CardProps } from "./Card.props";
-import { Item } from "../Item/Item";
+import clsx from "clsx";
+import type { CardProps, TextProps, DateProps } from "./Card.props";
+import { Tag } from "../Tag/Tag";
 
 export const Card = (props: CardProps) => {
   const items = props.items || [];
+    const textSize = {
+    sm: "text-sm p-1",
+    md: "text-md p-2",
+    lg: "text-xl p-3",
+  };
+  
+  const rounding = {
+    sm: "rounded-sm",
+    md: "rounded-md",
+    lg: "rounded-lg",
+    xl: "rounded-xl",
+    full: "rounded-full",
+  };
+
+
+  const renderText = (textProps: TextProps) => (
+    <div
+      style={{
+        color: textProps.descriptionColour,
+        backgroundColor: textProps.backgroundColour,
+        borderColor: textProps.borderColour,
+        borderWidth: textProps.borderColour ? "1px" : undefined,
+        borderStyle: textProps.borderColour ? "solid" : undefined,
+        boxShadow: textProps.shadow ? "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" : undefined,
+      }}
+      className={clsx(
+        textProps.size ? textSize[textProps.size] : "text-md"
+      )}
+    >
+      {textProps.subtitle && (
+        <div style={{ color: textProps.subtitleColour }}>
+          {textProps.subtitle}
+        </div>
+      )}
+      {textProps.description}
+    </div>
+  );
+
+  const renderDate = (dateProps: DateProps) => (
+    <div
+      style={{
+        color: dateProps.dateColour,
+        backgroundColor: dateProps.backgroundColour,
+        borderColor: dateProps.borderColour,
+        borderWidth: dateProps.borderColour ? "1px" : undefined,
+        borderStyle: dateProps.borderColour ? "solid" : undefined,
+        boxShadow: dateProps.shadow ? "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" : undefined,
+      }}
+      className={clsx(
+        dateProps.size ? textSize[dateProps.size] : "text-md"
+      )}
+    >
+      {dateProps.startDate && `Start: ${dateProps.startDate}`}
+      {dateProps.endDate && ` End: ${dateProps.endDate}`}
+    </div>
+  );
+
+  const renderItems = () => {
+    return items.map((item, index) => (
+      <div key={index} style={{ marginBottom: index < items.length - 1 ? "12px" : "0" }}>
+        {(item.order ?? ["tag", "text", "date"]).map((piece, index2) => (
+          <div key={index2}>
+            {piece === "tag" && item.tags && item.tags.map((tag, tagIndex) => (
+              <Tag key={tagIndex} {...tag} />
+            ))}
+            {piece === "text" && item.textProps && renderText(item.textProps)}
+            {piece === "date" && item.dateProps && renderDate(item.dateProps)}
+          </div>
+        ))}
+      </div>
+    ));
+  };
 
   return (
     <section
       style={{
-        background: props.backgroundColour ?? "var()",
-        border: `${props.borderColour}`,
+        backgroundColor: props.backgroundColour,
+        borderColor: props.borderColour,
+        borderWidth: props.borderWidth ? `${props.borderWidth}px` : undefined,
+        marginTop: props.marginTop,
       }}
-      className="border rounded-lg mb-4 p-4"
+      className={clsx(
+        props.rounding ? rounding[props.rounding] : "rounded-lg",
+        props.size ? textSize[props.size] : "text-md p-4"
+      )}
     >
       <h2
         style={{
@@ -21,11 +99,7 @@ export const Card = (props: CardProps) => {
         {props.title}
       </h2>
 
-      {items.map((item, index) => (
-        <div key={index} style={{ marginBottom: index < items.length - 1 ? "12px" : "0" }}>
-          <Item {...item} textColour={props.textColour} />
-        </div>
-      ))}
+      {renderItems()}
     </section>
   );
 };
