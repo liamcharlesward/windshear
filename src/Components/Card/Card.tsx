@@ -31,6 +31,7 @@ export const Card = (props: CardProps) => {
         boxShadow: textProps.shadow ? "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" : undefined,
       }}
       className={clsx(
+        props.rounding ? rounding[props.rounding] : "rounded-lg",
         textProps.size ? textSize[textProps.size] : "text-md"
       )}
     >
@@ -54,6 +55,7 @@ export const Card = (props: CardProps) => {
         boxShadow: dateProps.shadow ? "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" : undefined,
       }}
       className={clsx(
+        props.rounding ? rounding[props.rounding] : "rounded-lg",
         dateProps.size ? textSize[dateProps.size] : "text-md"
       )}
     >

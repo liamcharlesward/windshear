@@ -7,6 +7,7 @@ export interface TextProps {
   description?: string;
   descriptionColour?: Colour;
   size?: "sm" | "md" | "lg"
+  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
   shadow?: boolean,
   backgroundColour?: Colour,
   borderColour?: Colour;
@@ -17,8 +18,9 @@ export interface DateProps {
   endDate?: string;
   dateColour?: Colour;
   size?: "sm" | "md" | "lg"
+  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
   shadow?: boolean,
-    backgroundColour?: Colour,
+  backgroundColour?: Colour,
   borderColour?: Colour;
 }
 export interface ItemProps {
