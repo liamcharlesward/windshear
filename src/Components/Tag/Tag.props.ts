@@ -1,11 +1,11 @@
 import type { IconType } from "react-icons"
-import type { HexColor } from "../../Types/HexColor";
+import type { Colour } from "../../Types/HexColor";
 
 export interface TagProps {
   text?: string,
   icon?: IconType,
   shadow?: boolean,
-  customTextColour?: HexColor,
-  customBackgroundColour?: HexColor,
+  textColour?: Colour,
+  backgroundColour?: Colour,
   size?: "sm" | "md" | "lg"
 };

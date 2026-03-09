@@ -12,13 +12,13 @@ export const Tag = (props: TagProps) => {
     <span
       className={clsx(
         "p-2 inline-flex items-center gap-x-1 rounded-lg text-white",
-        !props.customBackgroundColour && "bg-gray-500/80",
+        !props.backgroundColour && "bg-gray-500/80",
         props.shadow && "shadow-xl",
         size[props.size || "md"],
       )}
       style={
-        props.customBackgroundColour || props.customTextColour
-          ? { backgroundColor: props.customBackgroundColour, color: props.customTextColour }
+        props.backgroundColour || props.textColour
+          ? { backgroundColor: props.backgroundColour, color: props.textColour }
           : undefined
       }
     >
