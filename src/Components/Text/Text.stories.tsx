@@ -1,6 +1,8 @@
 // Text.stories.ts
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "./Text";
+import { Presets } from "./Text.data";
+import * as conversions from "../../Types/Conversions";
 
 const meta: Meta<typeof Text> = {
   title: "Components/Text",
@@ -9,7 +11,7 @@ const meta: Meta<typeof Text> = {
   argTypes: {
     preset: {
       control: "select",
-      options: ["none", "Blank", "Default", "Preset1"],
+      options: Object.keys(Presets),
       description: "Preset configuration to use. 'none' uses raw props.",
     },
     text: {
@@ -26,8 +28,13 @@ const meta: Meta<typeof Text> = {
     },
     size: {
       control: "select",
-      options: [undefined, "sm", "md", "lg"],
+      options: Object.keys(conversions.textSize),
       description: "Text size key from conversions.",
+    },
+    boldness: {
+      control: "select",
+      options: Object.keys(conversions.boldness),
+      description: "Tailwind Boldness key from conversions",
     },
   },
 };
@@ -48,14 +55,25 @@ export const PresetBlank: Story = {
   name: "Preset / Blank",
   args: {
     preset: "Blank",
-    text: "Blank preset — all styling undefined",
   },
 };
 
-export const PresetOne: Story = {
-  name: "Preset / Preset1",
+export const Title: Story = {
+  name: "Preset / Title",
   args: {
-    preset: "Preset1",
+    preset: "Title",
+  },
+};
+export const SubTitle: Story = {
+  name: "Preset / SubTitle",
+  args: {
+    preset: "SubTitle",
+  },
+};
+export const Description: Story = {
+  name: "Preset / Description",
+  args: {
+    preset: "Description",
   },
 };
 
@@ -93,7 +111,7 @@ export const NoPresetWithSize: Story = {
 export const PresetOverrideText: Story = {
   name: "Preset Override / Custom text",
   args: {
-    preset: "Preset1",
+    preset: "Title",
     text: "Overriding Preset1 text",
   },
 };
@@ -101,7 +119,7 @@ export const PresetOverrideText: Story = {
 export const PresetOverrideColour: Story = {
   name: "Preset Override / Custom colour",
   args: {
-    preset: "Preset1",
+    preset: "Title",
     textColour: "#e63946",
   },
 };

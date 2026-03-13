@@ -8,4 +8,5 @@ export interface TextProps{
   textColour?: Colour;
   backgroundColour?: Colour,
   size?: keyof typeof conversions.textSize;
+  boldness?: keyof typeof conversions.boldness;
 }
