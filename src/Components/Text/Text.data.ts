@@ -7,7 +7,7 @@ export const Default: TextProps = {
 
 export const Blank: TextProps = {
   preset: "Blank",
-  text: "undefined",
+  text: undefined,
   textColour: undefined,
   backgroundColour: undefined,
   size: undefined,
