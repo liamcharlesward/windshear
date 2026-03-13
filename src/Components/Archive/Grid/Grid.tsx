@@ -1,5 +1,5 @@
 import type { GridProps } from "./Grid.props";
-import { Card } from "../Card/Card";
+import { Card } from "../../Card/Card";
 
 //todo: add colour options for background, text, title, border etc. to be passed down from card and grid level. This will allow for more customisation and theming options.
 

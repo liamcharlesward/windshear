@@ -1,14 +1,48 @@
+import type { TagProps } from "../Tag/Tag.props";
 import type { Colour } from "../../Types/Colour";
-import type { ItemProps } from "../Item/Item.props"
+
+export interface TextProps {
+  subtitle?: string;
+  subtitleColour?: Colour;
+  description?: string;
+  descriptionColour?: Colour;
+  
+  size?: "sm" | "md" | "lg"
+  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
+  shadow?: boolean,
+  backgroundColour?: Colour,
+  borderColour?: Colour;
+}
+
+export interface DateProps {
+  startDate?: string;
+  endDate?: string;
+  dateColour?: Colour;
+
+  size?: "sm" | "md" | "lg"
+  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
+  shadow?: boolean,
+  backgroundColour?: Colour,
+  borderColour?: Colour;
+}
+export interface ItemProps {
+  order?: ("tag" | "text" | "date")[]
+
+  tags?: TagProps[];
+  textProps?: TextProps;
+  dateProps?: DateProps;
+}
 
 export interface CardProps {
   title: string;
-  items?: ItemProps[];
-  marginTop?: string;
-  backgroundColour?: Colour;
-  borderColour?: Colour;
-  borderWidth?: number;
   titleColour?: Colour;
-  textColour?: Colour;
-  rounding?: number;
+  size?: "sm" | "md" | "lg"
+
+  borderWidth?: number;//thickness of border
+  borderColour?: Colour;
+  backgroundColour?: Colour;
+  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";// rounds corners
+  spacing?: "none" | "sm" | "md" | "lg";// spacing between items
+
+  items?: ItemProps[];
 }

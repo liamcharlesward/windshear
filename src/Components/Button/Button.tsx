@@ -17,6 +17,7 @@ export const Button = (props: ButtonProps) => {
     lg: "rounded-lg",
     xl: "rounded-xl",
     full: "rounded-full",
+    none: "rounded-none",
   };
 
   const baseClasses =

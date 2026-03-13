@@ -1,4 +1,4 @@
-import type { TagProps } from "../Tag/Tag.props";
+import type { TagProps } from "../../Tag/Tag.props";
 
 // set this to be export so that 
 export type PurposeType = "List" | "Test"; 

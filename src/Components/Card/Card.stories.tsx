@@ -5,68 +5,112 @@ export default {
 };
 
 export const Education = {
-  args: {
-    title: "Education",
-    marginTop: "0px",
-    backgroundColour: "#0b1220",
-    borderColour: "1px solid rgba(255, 255, 255, 0.03)",
-    titleColour: "#d9f0ff",
-    textColour: "#d9f0ff",
-    items: [
+  args:{
+    title:"Education",
+    backgroundColour:"#0b1220",
+    borderColour:"#d9f0ff",
+    titleColour:"#d9f0ff",
+    rounding:"lg",
+    spacing: "md",
+    items:[
       {
-        purpose: "List",
-        title: "University of Manchester",
-        subtitle: "BSc Computer Science",
-        description: "First Class Honours",
-        startDate: "2019",
-        endDate: "2022",
-        tags: [
+        order:["text", "tag", "date"],
+        textProps:{
+          subtitle:"University of Manchester",
+          subtitleColour:"white",
+          description:"BSc Computer Science - First Class Honours",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
+          borderColour:"white",
+        },
+        tags:[
           { text: "Degree", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
           { text: "First Class", backgroundColour: "#1a3a2a", textColour: "#68d391" },
         ],
+        dateProps:{
+          startDate:"2019",
+          endDate:"2022",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
+        },
       },
       {
-        purpose: "List",
-        title: "Stockport College",
-        subtitle: "Mathematics, Physics, Computer Science",
-        description: "A, A, B",
-        startDate: "2017",
-        endDate: "2019",
-        tags: [{ text: "A-Levels", backgroundColour: "#1a2a3a", textColour: "#63b3ed" }],
+        order:["text", "tag", "date"],
+        textProps:{
+          subtitle:"Stockport College",
+          subtitleColour:"#d9f0ff",
+          description:"Mathematics, Physics, Computer Science - A, A, B",
+          descriptionColour:"#ffffff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
+        },
+        tags:[{ text: "A-Levels", backgroundColour: "#1a2a3a", textColour: "#63b3ed" }],
+        dateProps:{
+          startDate:"2017",
+          endDate:"2019",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
+        },
       },
-    ],
+    ]
   },
 };
 
 export const WorkExperience = {
   args: {
     title: "Work Experience",
-    marginTop: "0",
+    titleColour: "white",
     backgroundColour: "#0b1220",
     borderColour: "1px solid rgba(255, 255, 255, 0.03)",
-    titleColour: "white",
-    textColour: "white",
     items: [
       {
-        purpose: "List",
-        title: "Anthropic",
-        subtitle: "Senior Software Engineer",
-        description: "Full-time",
-        startDate: "Jan 2023",
-        endDate: "Present",
+        order: ["text", "tag", "date"],
+        textProps: {
+          subtitle:"Anthropic",
+          subtitleColour:"white",
+          description:"Senior Software Engineer - Full-time",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
+        },
         tags: [
           { text: "Full-time", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
           { text: "AI", backgroundColour: "#2a1a3a", textColour: "#b794f4" },
         ],
+        dateProps: {
+          startDate: "Jan 2023",
+          endDate: "Present",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
+        },
       },
       {
-        purpose: "List",
-        title: "Google",
-        subtitle: "Software Engineer Intern",
-        description: "Internship",
-        startDate: "Jun 2022",
-        endDate: "Sep 2022",
+        order: ["text", "tag", "date"],
+        textProps: {
+          subtitle: "Google",
+          subtitleColour:"white",
+          description: "Software Engineer Intern - Internship",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
+        },
         tags: [{ text: "Internship", backgroundColour: "#1a2a3a", textColour: "#63b3ed" }],
+        dateProps: {
+          startDate: "Jun 2022",
+          endDate: "Sep 2022",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
+        },
       },
     ],
   },
@@ -81,9 +125,15 @@ export const Skills = {
     textColour: "white",
     items: [
       {
-        purpose: "List",
-        title: "Frontend",
-        subtitle: "React, TypeScript, Tailwind CSS",
+        order: ["text", "tag"],
+        textProps: {
+          subtitle: "Frontend",
+          subtitleColour:"white",
+          description: "React, TypeScript, Tailwind CSS",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
+        },
         tags: [
           { text: "React", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
           { text: "TypeScript", backgroundColour: "#1a2a3a", textColour: "#63b3ed" },
@@ -91,9 +141,15 @@ export const Skills = {
         ],
       },
       {
-        purpose: "List",
-        title: "Backend",
-        subtitle: "Node.js, Python, PostgreSQL",
+        order: ["text", "tag"],
+        textProps: {
+          subtitle: "Backend",
+          subtitleColour:"white",
+          description: "Node.js, Python, PostgreSQL",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
+        },
         tags: [
           { text: "Node.js", backgroundColour: "#1a3a2a", textColour: "#68d391" },
           { text: "Python", backgroundColour: "#1a3a2a", textColour: "#68d391" },
@@ -101,9 +157,15 @@ export const Skills = {
         ],
       },
       {
-        purpose: "List",
-        title: "Tools",
-        subtitle: "Git, Docker, AWS",
+        order: ["text", "tag"],
+        textProps: {
+          subtitle: "Tools",
+          subtitleColour:"white",
+          description: "Git, Docker, AWS",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
+        },
         tags: [
           { text: "Git", backgroundColour: "#2a1a1a", textColour: "#fc8181" },
           { text: "Docker", backgroundColour: "#2a1a1a", textColour: "#fc8181" },
@@ -123,26 +185,50 @@ export const CustomStyled = {
     textColour: "#e2e8f0",
     items: [
       {
-        purpose: "List",
-        title: "Portfolio Website",
-        subtitle: "Personal site built with React & TypeScript",
-        startDate: "Mar 2024",
-        endDate: "Present",
+        order: ["text", "tag", "date"],
+        textProps: {
+          subtitle: "Portfolio Website",
+          subtitleColour:"white",
+          description: "Personal site built with React & TypeScript",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
+        },
         tags: [
           { text: "React", backgroundColour: "#0d2a3a", textColour: "#63b3ed" },
           { text: "TypeScript", backgroundColour: "#0d2a3a", textColour: "#63b3ed" },
         ],
+        dateProps: {
+          startDate: "Mar 2024",
+          endDate: "Present",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
+        },
       },
       {
-        purpose: "List",
-        title: "Component Library",
-        subtitle: "Reusable UI components with Storybook",
-        startDate: "Jan 2024",
-        endDate: "Feb 2024",
+        order: ["text", "tag", "date"],
+        textProps: {
+          subtitle: "Component Library",
+          subtitleColour:"white",
+          description: "Reusable UI components with Storybook",
+          descriptionColour:"white",
+          size:"md",
+          shadow:false,
+        },
         tags: [
           { text: "Storybook", backgroundColour: "#2a1a2a", textColour: "#f687b3" },
           { text: "UI", backgroundColour: "#2a1a2a", textColour: "#f687b3" },
         ],
+        dateProps: {
+          startDate: "Jan 2024",
+          endDate: "Feb 2024",
+          dateColour:"#d9f0ff",
+          size:"md",
+          shadow:false,
+          borderColour:"#d9f0ff",
+        },
       },
     ],
   },
@@ -153,9 +239,10 @@ export const MinimalWithDefaults = {
     title: "Basic Card",
     items: [
       {
-        purpose: "List",
-        title: "Default Item",
-        subtitle: "Shows default styling",
+        textProps: {
+          subtitle: "Default Item",
+          description: "Shows default styling",
+        },
         tags: [{ text: "Default" }],
       },
     ],
