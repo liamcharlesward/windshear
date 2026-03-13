@@ -1,29 +1,11 @@
 import clsx from "clsx";
 import type { CardProps, TextProps, DateProps } from "./Card.props";
 import { Tag } from "../Tag/Tag";
+import * as conversions from "../../Types/Conversions";
 
 export const Card = (props: CardProps) => {
   const items = props.items || [];
-    const textSize = {
-    sm: "text-sm p-1",
-    md: "text-md p-1",
-    lg: "text-xl p-2",
-  };
-  
-  const rounding = {
-    sm: "rounded-sm",
-    md: "rounded-md",
-    lg: "rounded-lg",
-    xl: "rounded-xl",
-    full: "rounded-full",
-    none: "rounded-none",
-  };
-  const spacing = {
-    none: "0",
-    sm: "2",
-    md: "6",
-    lg: "12",
-  };
+
 
 
   const renderText = (textProps: TextProps) => (
@@ -37,16 +19,36 @@ export const Card = (props: CardProps) => {
         boxShadow: textProps.shadow ? "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" : undefined,
       }}
       className={clsx(
-        props.rounding ? rounding[props.rounding] : "rounded-lg",
-        textProps.size ? textSize[textProps.size] : "text-"
+        props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
+        textProps.size ? conversions.textSize[textProps.size] : "text-"
       )}
     >
       {textProps.subtitle && (
-        <div style={{ color: textProps.subtitleColour }}>
+        <div
+          style={{
+            color: textProps.subtitle,
+            padding: "0px",
+          }}
+          className={clsx(
+            props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
+            textProps.size ? conversions.textSize[textProps.size] : "text-"
+          )}>
           {textProps.subtitle}
         </div>
       )}
-      {textProps.description}
+      {textProps.description && (
+        <div
+          style={{
+            color: textProps.descriptionColour,
+            padding: "0px",
+          }}
+          className={clsx(
+            props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
+            textProps.size ? conversions.textSize[textProps.size] : "text-"
+          )}>
+          {textProps.description}
+        </div>
+      )}
     </div>
   );
 
@@ -61,8 +63,8 @@ export const Card = (props: CardProps) => {
         boxShadow: dateProps.shadow ? "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" : undefined,
       }}
       className={clsx(
-        props.rounding ? rounding[props.rounding] : "rounded-lg",
-        dateProps.size ? textSize[dateProps.size] : "text-md"
+        props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
+        dateProps.size ? conversions.textSize[dateProps.size] : "text-md"
       )}
     >
       {dateProps.startDate && `Start: ${dateProps.startDate}`}
@@ -72,7 +74,7 @@ export const Card = (props: CardProps) => {
 
   const renderItems = () => {
     return items.map((item, index) => (
-      <div key={index} style={{ marginBottom: (index < items.length - 1) && props.spacing ?  `${spacing[props.spacing]}px` : "0px" }}>
+      <div key={index} style={{ marginBottom: (index < items.length - 1) && props.spacing ? conversions.spacing[props.spacing] : "0px" }}>
         {(item.order ?? ["text", "date", "tag"]).map((piece, index2) => (
           <div key={index2}>
             {piece === "tag" && item.tags && item.tags.map((tag, tagIndex) => (
@@ -94,8 +96,8 @@ export const Card = (props: CardProps) => {
         borderWidth: props.borderWidth ? `${props.borderWidth}px` : undefined,
       }}
       className={clsx(
-        props.rounding ? rounding[props.rounding] : "rounded-lg",
-        props.size ? textSize[props.size] : "text-md p-4"
+        props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
+        props.size ? conversions.textSize[props.size] : "text-md p-4"
       )}
     >
       <h2
