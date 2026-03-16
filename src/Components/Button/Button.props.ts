@@ -23,7 +23,7 @@ type ButtonWithIcon = {
 
 type ButtonWithoutIcon = {
   icon?: undefined,
-  iconPosition: never,
+  iconPosition?: never,
 }
 
 type ButtonWithPreset = {

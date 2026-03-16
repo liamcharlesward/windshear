@@ -1,5 +1,5 @@
+import type { GlobalTextSizePresets, GlobalTextWeightPresets } from "../../Constants/GlobalPresets";
 import type { Colour } from "../../Types/Colour";
-import * as conversions from "../../Types/Conversions";
 import type {Presets} from "./Text.data";
 
 export interface TextProps{
@@ -7,6 +7,6 @@ export interface TextProps{
   text?: string;
   textColour?: Colour;
   backgroundColour?: Colour,
-  size?: keyof typeof conversions.textSize;
-  boldness?: keyof typeof conversions.boldness;
+  size?: keyof typeof GlobalTextSizePresets;
+  boldness?: keyof typeof GlobalTextWeightPresets;
 }

@@ -1,12 +1,11 @@
 import clsx from "clsx";
 import type { CardProps, TextProps, DateProps } from "./Card.props";
 import { Tag } from "../Tag/Tag";
-import * as conversions from "../../Types/Conversions";
+
+import { GlobalRoundingPresets, GlobalTextSizePresets, GlobalSpacingPresets } from "../../Constants/GlobalPresets";
 
 export const Card = (props: CardProps) => {
   const items = props.items || [];
-
-
 
   const renderText = (textProps: TextProps) => (
     <div
@@ -19,8 +18,8 @@ export const Card = (props: CardProps) => {
         boxShadow: textProps.shadow ? "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" : undefined,
       }}
       className={clsx(
-        props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
-        textProps.size ? conversions.textSize[textProps.size] : "text-"
+        props.rounding ? GlobalRoundingPresets[props.rounding] : "rounded-lg",
+        textProps.size ? GlobalTextSizePresets[textProps.size] : "text-",
       )}
     >
       {textProps.subtitle && (
@@ -30,9 +29,10 @@ export const Card = (props: CardProps) => {
             padding: "0px",
           }}
           className={clsx(
-            props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
-            textProps.size ? conversions.textSize[textProps.size] : "text-"
-          )}>
+            props.rounding ? GlobalRoundingPresets[props.rounding] : "rounded-lg",
+            textProps.size ? GlobalTextSizePresets[textProps.size] : "text-",
+          )}
+        >
           {textProps.subtitle}
         </div>
       )}
@@ -43,9 +43,10 @@ export const Card = (props: CardProps) => {
             padding: "0px",
           }}
           className={clsx(
-            props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
-            textProps.size ? conversions.textSize[textProps.size] : "text-"
-          )}>
+            props.rounding ? GlobalRoundingPresets[props.rounding] : "rounded-lg",
+            textProps.size ? GlobalTextSizePresets[textProps.size] : "text-",
+          )}
+        >
           {textProps.description}
         </div>
       )}
@@ -63,8 +64,8 @@ export const Card = (props: CardProps) => {
         boxShadow: dateProps.shadow ? "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" : undefined,
       }}
       className={clsx(
-        props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
-        dateProps.size ? conversions.textSize[dateProps.size] : "text-md"
+        props.rounding ? GlobalRoundingPresets[props.rounding] : "rounded-lg",
+        dateProps.size ? GlobalTextSizePresets[dateProps.size] : "text-md",
       )}
     >
       {dateProps.startDate && `Start: ${dateProps.startDate}`}
@@ -74,12 +75,15 @@ export const Card = (props: CardProps) => {
 
   const renderItems = () => {
     return items.map((item, index) => (
-      <div key={index} style={{ marginBottom: (index < items.length - 1) && props.spacing ? conversions.spacing[props.spacing] : "0px" }}>
+      <div
+        key={index}
+        style={{
+          marginBottom: index < items.length - 1 && props.spacing ? GlobalSpacingPresets[props.spacing] : "0px",
+        }}
+      >
         {(item.order ?? ["text", "date", "tag"]).map((piece, index2) => (
           <div key={index2}>
-            {piece === "tag" && item.tags && item.tags.map((tag, tagIndex) => (
-              <Tag key={tagIndex} {...tag} />
-            ))}
+            {piece === "tag" && item.tags && item.tags.map((tag, tagIndex) => <Tag key={tagIndex} {...tag} />)}
             {piece === "text" && item.textProps && renderText(item.textProps)}
             {piece === "date" && item.dateProps && renderDate(item.dateProps)}
           </div>
@@ -96,8 +100,8 @@ export const Card = (props: CardProps) => {
         borderWidth: props.borderWidth ? `${props.borderWidth}px` : undefined,
       }}
       className={clsx(
-        props.rounding ? conversions.rounding[props.rounding] : "rounded-lg",
-        props.size ? conversions.textSize[props.size] : "text-md p-4"
+        props.rounding ? GlobalRoundingPresets[props.rounding] : "rounded-lg",
+        props.size ? GlobalTextSizePresets[props.size] : "text-md p-4",
       )}
     >
       <h2

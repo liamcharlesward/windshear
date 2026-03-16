@@ -1,8 +1,8 @@
 // Text.stories.ts
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Text } from "./Text";
 import { Presets } from "./Text.data";
-import * as conversions from "../../Types/Conversions";
+import { GlobalTextSizePresets, GlobalTextWeightPresets } from "../../Constants/GlobalPresets";
 
 const meta: Meta<typeof Text> = {
   title: "Components/Text",
@@ -28,13 +28,13 @@ const meta: Meta<typeof Text> = {
     },
     size: {
       control: "select",
-      options: Object.keys(conversions.textSize),
-      description: "Text size key from conversions.",
+      options: Object.keys(GlobalTextSizePresets),
+      description: "Text size key from GlobalTextSizePresets.",
     },
     boldness: {
       control: "select",
-      options: Object.keys(conversions.boldness),
-      description: "Tailwind Boldness key from conversions",
+      options: Object.keys(GlobalTextWeightPresets),
+      description: "Tailwind Boldness key from GlobalTextWeightPresets.",
     },
   },
 };
@@ -127,7 +127,6 @@ export const PresetOverrideColour: Story = {
 // --- Playground (all controls exposed) ---
 
 export const Playground: Story = {
-  name: "Playground",
   args: {
     preset: "none",
     text: "Edit me in the controls panel",
