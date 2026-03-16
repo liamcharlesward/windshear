@@ -1,3 +1,9 @@
+export type GlobalColourPresets = keyof typeof GlobalColourPresets;
+export type GlobalTextSizePresets = keyof typeof GlobalTextSizePresets;
+export type GlobalTextWeightPresets = keyof typeof GlobalTextWeightPresets;
+export type GlobalRoundingPresets = keyof typeof GlobalRoundingPresets;
+export type GlobalSpacingPresets = keyof typeof GlobalSpacingPresets;
+
 export const GlobalColourPresets = {
   primary: "#51a2ff",
   secondary: "#a684ff",

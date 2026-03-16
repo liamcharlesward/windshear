@@ -1,5 +1,6 @@
 import type { IconType } from "react-icons";
 import type { Colour } from "../../Types/Colour";
+import type { GlobalRoundingPresets } from "../../Constants/GlobalPresets";
 
 // TODO: Conditionalise props
 interface BaseButtonProps {
@@ -10,7 +11,7 @@ interface BaseButtonProps {
 
   text?: string;
   size?: "sm" | "md" | "lg";
-  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
+  rounding?: GlobalRoundingPresets;
 
   shadow?: boolean;
   disabled?: boolean;

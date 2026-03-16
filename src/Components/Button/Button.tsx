@@ -2,22 +2,13 @@ import clsx from "clsx";
 import type { ButtonProps } from "./Button.props";
 import { transparentize, darken } from "colorizr";
 import type { Colour } from "../../Types/Colour";
-import { GlobalColourPresets } from "../../Constants/GlobalPresets";
+import { GlobalColourPresets, GlobalRoundingPresets } from "../../Constants/GlobalPresets";
 
 export const Button = (props: ButtonProps) => {
   const size = {
     sm: "text-sm p-1",
     md: "text-md p-2",
     lg: "text-xl p-3",
-  };
-
-  const rounding = {
-    sm: "rounded-sm",
-    md: "rounded-md",
-    lg: "rounded-lg",
-    xl: "rounded-xl",
-    full: "rounded-full",
-    none: "rounded-none",
   };
 
   const baseClasses =
@@ -66,7 +57,7 @@ export const Button = (props: ButtonProps) => {
         baseClasses,
         variantClasses[props.variant],
         props.size ? size[props.size] : "text-md p-2",
-        props.rounding ? rounding[props.rounding] : "rounded-lg",
+        props.rounding ? GlobalRoundingPresets[props.rounding] : "rounded-lg",
         props.shadow && "drop-shadow-lg",
       )}
       // style for custom background colour

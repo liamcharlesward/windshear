@@ -1,5 +1,6 @@
 import type { TagProps } from "../Tag/Tag.props";
 import type { Colour } from "../../Types/Colour";
+import type { GlobalRoundingPresets } from "../../Constants/GlobalPresets";
 
 export interface TextProps {
   subtitle?: string;
@@ -8,7 +9,7 @@ export interface TextProps {
   descriptionColour?: Colour;
   
   size?: "sm" | "md" | "lg"
-  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
+  rounding?: GlobalRoundingPresets;
   shadow?: boolean,
   backgroundColour?: Colour,
   borderColour?: Colour;
@@ -20,7 +21,7 @@ export interface DateProps {
   dateColour?: Colour;
 
   size?: "sm" | "md" | "lg"
-  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";
+  rounding?: GlobalRoundingPresets;
   shadow?: boolean,
   backgroundColour?: Colour,
   borderColour?: Colour;
@@ -41,7 +42,7 @@ export interface CardProps {
   borderWidth?: number;//thickness of border
   borderColour?: Colour;
   backgroundColour?: Colour;
-  rounding?: "sm" | "md" | "lg" | "xl" | "full" | "none";// rounds corners
+  rounding?: GlobalRoundingPresets;// rounds corners
   spacing?: "none" | "sm" | "md" | "lg";// spacing between items
 
   items?: ItemProps[];
