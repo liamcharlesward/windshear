@@ -1,16 +1,17 @@
 import type { IconType } from "react-icons";
 import type { Colour } from "../../Types/Colour";
 
-interface BaseRadioGroupProps {
-  options: RadioOptionprops[],
-  maxPerRow: 1 | 2 | 3 | 4,
-  tick?: boolean
-};
-
 type RadioOptionprops = {
   option: string,
   leadingIcon?: IconType,
 }
+
+interface BaseRadioGroupProps {
+  options: RadioOptionprops[],
+  maxPerRow?: number,
+  tick?: boolean,
+  variant: "minimal" | "rich",
+};
 
 type RadioGroupWithPresetAccent = {
   presetAccent: "primary" | "secondary" | "tertiary";

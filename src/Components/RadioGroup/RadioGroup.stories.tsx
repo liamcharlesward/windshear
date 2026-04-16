@@ -22,8 +22,9 @@ export const Primary = {
         leadingIcon: MdLocalFireDepartment,
       },
     ],
-    maxPerRow: 3,
+    maxPerRow: 2,
     presetAccent: "primary",
+    variant: "rich",
   },
 };
 
@@ -44,7 +45,7 @@ export const CustomAccent = {
         leadingIcon: MdLocalFireDepartment,
       },
     ],
-    maxPerRow: 3,
     customAccent: "#5b0085",
   },
+  variant: "minimal"
 };

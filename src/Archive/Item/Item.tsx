@@ -1,5 +1,6 @@
 import type { ItemProps } from "./Item.props";
-import { Tag } from "../../Tag/Tag";
+// import { Tag } from "../..Components/Tag/Tag";
+import { Tag } from "../../Components/Tag/Tag";
 
 //todo: add colour options for background, text, title, border etc. to be passed down from card and grid level. This will allow for more customisation and theming options. Allow items to have colours set and specified in its todo.
 
@@ -31,7 +32,7 @@ export const Item = (props: ItemProps) => {
         borderRadius: borderColour ? "4px" : undefined,
         padding: backgroundColour ? "8px" : undefined,
       }}>
-        <a style={{ margin: 0}}>
+        <a style={{ margin: 0 }}>
           {title && <strong style={{ color: titleColour ?? textColour }}>{title}</strong>}
           {title && <br />}
           {subtitle && (

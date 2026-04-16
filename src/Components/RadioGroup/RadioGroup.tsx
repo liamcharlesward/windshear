@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import clsx from "clsx";
 import { transparentize } from "colorizr";
 import { IoMdCheckmark } from "react-icons/io";
@@ -6,66 +6,88 @@ import { GlobalColourPresets } from "../../Constants/GlobalPresets";
 import type { RadioGroupProps } from "./RadioGroup.props";
 import type { Colour } from "../../Types/Colour";
 
+// Helper to calculate column widths safely based on maxPerRow
+const calculateItemWidth = (maxPerRow: number | undefined, totalOptions: number) => {
+  const columns = maxPerRow ? Math.min(maxPerRow, totalOptions) : totalOptions;
+  return `calc((100% - ${(columns - 1) * 0.5}rem) / ${columns})`;
+};
+
+// Map accent colours to CSS variables
+const getAccentStyle = (customAccent?: Colour, presetAccent?: keyof typeof GlobalColourPresets) => {
+  const colour = customAccent || (presetAccent ? GlobalColourPresets[presetAccent] as Colour : undefined);
+  if (!colour) return {};
+
+  return {
+    "--colour": colour,
+    "--colour-translucent": transparentize(colour, 0.8),
+  } as React.CSSProperties;
+};
+
 export const RadioGroup = (props: RadioGroupProps) => {
-  // TODO: Extract state
   const [selected, setSelected] = useState(0);
 
-  const rowOptions = {
-    1: "grid-cols-1",
-    2: "grid-cols-2",
-    3: "grid-cols-3",
-    4: "grid-cols-4",
-  };
+  // Memoize styles to avoid recalculating on every re-render/map iteration
+  const containerStyle = useMemo(
+    () => getAccentStyle(props.customAccent, props.presetAccent),
+    [props.customAccent, props.presetAccent]
+  );
 
-  const computedColourStyles = (colour: Colour): React.CSSProperties => {
-    return {
-      "--colour": colour,
-      "--colour-translucent": transparentize(colour, 0.8),
-    } as React.CSSProperties;
-  };
+  const itemWidth = useMemo(
+    () => calculateItemWidth(props.maxPerRow, props.options.length),
+    [props.maxPerRow, props.options.length]
+  );
 
-  const radioOptions = props.options.map((option, index) => {
-    const LeadingIcon = option.leadingIcon;
-    return (
-      <div
-        className={clsx(
-          "flex justify-between cursor-pointer p-2 rounded-md border-2 transition-colors group hover:border-(--colour) hover:bg-(--colour-translucent) hover:text-(--colour)",
-          selected === index
-            ? "border-(--colour) bg-(--colour-translucent) text-(--colour)"
-            : "border-neutral-500 bg-neutral-500/20 text-neutral-500",
-        )}
-        key={index}
-        onClick={() => setSelected(index)}
-        style={
-          props.customAccent
-            ? computedColourStyles(props.customAccent)
-            : props.presetAccent
-              ? computedColourStyles(GlobalColourPresets[props.presetAccent] as Colour)
-              : undefined
-        }
-      >
-        <div className="flex flex-row items-center gap-x-1">
-          {LeadingIcon && <LeadingIcon className="text-xl" />}
-          <p>{option.option}</p>
-        </div>
-        <div
-          className={clsx(
-            "rounded-full bg-white aspect-square w-6 flex items-center justify-center border group-hover:border-(--colour)",
-            selected === index ? "border:[var(--colour)]" : "border-neutral-500",
-          )}
-        >
+  return (
+    <div className="flex flex-wrap gap-2" style={containerStyle}>
+      {props.options.map((option, index) => {
+        const isSelected = selected === index;
+        const LeadingIcon = option.leadingIcon;
+        const isRich = props.variant === "rich";
+
+        return (
           <div
+            key={index}
+            onClick={() => setSelected(index)}
+            style={{ width: itemWidth }}
             className={clsx(
-              "rounded-full w-4/5 aspect-square flex items-center justify-center transition-opacity bg-(--colour) group-hover:bg-(--colour)",
-              selected === index ? "opacity-100" : "opacity-0",
+              "flex justify-between items-center cursor-pointer p-2 rounded-md transition-colors group",
+              isRich && [
+                "border-2 hover:border-(--colour) hover:bg-(--colour-translucent) hover:text-(--colour)",
+                isSelected
+                  ? "border-(--colour) bg-(--colour-translucent) text-(--colour)"
+                  : "border-neutral-400 bg-neutral-500/20 text-neutral-500",
+              ],
+              !isRich && [
+                "hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-(--colour)",
+                isSelected ? "text-(--colour) font-medium" : "text-neutral-500",
+              ]
             )}
           >
-            {props.tick && <IoMdCheckmark className="text-white" />}
-          </div>
-        </div>
-      </div>
-    );
-  });
+            <div className="flex flex-row items-center gap-x-1">
+              {LeadingIcon && <LeadingIcon className="text-xl" />}
+              <p>{option.option}</p>
+            </div>
 
-  return <div className={clsx(" grid gap-y-2 gap-x-2", rowOptions[props.maxPerRow])}>{radioOptions}</div>;
+            <div
+              className={clsx(
+                "rounded-full aspect-square flex items-center justify-center border transition-colors group-hover:border-[var(--colour)]",
+                isRich ? "bg-white w-6" : "w-5",
+                isSelected ? "border-[var(--colour)]" : "border-neutral-400"
+              )}
+            >
+              <div
+                className={clsx(
+                  "rounded-full aspect-square flex items-center justify-center transition-opacity bg-[var(--colour)]",
+                  isRich ? "w-4/5" : "w-3/5",
+                  isSelected ? "opacity-100" : "opacity-0"
+                )}
+              >
+                {props.tick && isRich && <IoMdCheckmark className="text-white" />}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
