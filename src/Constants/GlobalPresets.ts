@@ -20,15 +20,15 @@ export const GlobalTextSizePresets = {
 };
 
 export const GlobalTextWeightPresets = {
-  thin:       "font-thin",
+  thin: "font-thin",
   extralight: "font-extralight",
-  light:      "font-light",
-  normal:     "font-normal",
-  medium:     "font-medium",
-  semibold:   "font-semibold",
-  bold:       "font-bold",
-  extrabold:  "font-extrabold",
-  black:      "font-black",
+  light: "font-light",
+  normal: "font-normal",
+  medium: "font-medium",
+  semibold: "font-semibold",
+  bold: "font-bold",
+  extrabold: "font-extrabold",
+  black: "font-black",
 };
 
 export const GlobalRoundingPresets = {

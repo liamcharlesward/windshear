@@ -2,15 +2,23 @@ import type { IconType } from "react-icons";
 import type { Colour } from "../../Types/Colour";
 import type { GlobalRoundingPresets } from "../../Constants/GlobalPresets";
 
-// TODO: Conditionalise props
+// TODO: Refactor constants for consistency
+export const BUTTON_VARIANTS = ["filled", "outlined", "translucent"] as const;
+export const BUTTON_SIZES = ["sm", "md", "lg"] as const;
+export const BUTTON_PRESETS = ["primary", "secondary", "tertiary", "confirmation", "destructive"] as const;
+
+type ButtonVariants = typeof BUTTON_VARIANTS[number];
+type ButtonSizes = typeof BUTTON_SIZES[number];
+type ButtonPresets = typeof BUTTON_PRESETS[number];
+
 interface BaseButtonProps {
-  variant: "filled" | "outlined" | "translucent";
+  variant: ButtonVariants;
   onClick: () => void;
   link?: string;
-  newTab?: boolean; 
+  newTab?: boolean;
 
   text?: string;
-  size?: "sm" | "md" | "lg";
+  size?: ButtonSizes;
   rounding?: GlobalRoundingPresets;
 
   shadow?: boolean;
@@ -28,7 +36,7 @@ type ButtonWithoutIcon = {
 }
 
 type ButtonWithPreset = {
-  preset: "primary" | "secondary" | "tertiary" | "confirmation" | "destructive";
+  preset: ButtonPresets;
   customColour?: never,
 }
 
